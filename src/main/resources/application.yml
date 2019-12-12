@@ -1,0 +1,21 @@
+spring:
+  application:
+    name: ImoocMerchants
+  datasource:  # ∵ pom 中依赖了 mysql-connector-java ∴ 这里要配置数据源信息，否则无法启动应用
+    url: jdbc:mysql://localhost:3306/passbook?autoReconnect=true  # url 上的参数：断开连接后会自动重连
+    username: root
+    password: frank914
+  kafka:
+    bootstrap-servers: localhost:9092
+    consumer:
+      group-id: passbook
+    listener:
+      concurrency: 4
+
+server:
+  port: 9527
+
+logging:
+  level: debug
+  file:
+    name: imooc-merchants.log
