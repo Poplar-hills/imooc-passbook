@@ -6,9 +6,8 @@ public class Constants {
     public static final String TEMPLATE_TOPIC = "merchants-template";
 
     // token key
-    public static final String TOKEN_STRING = "token";
+    public static final String TOKEN_KEY = "token";
 
     // token value
-    public static final String TOKEN = "imooc-passbook-merchants";
-
+    public static final String TOKEN_VALUE = "imooc-passbook-merchants";
 }

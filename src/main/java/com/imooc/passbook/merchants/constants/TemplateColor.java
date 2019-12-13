@@ -20,5 +20,4 @@ public enum TemplateColor {
 
     // 颜色描述
     private String color;
-
 }

@@ -1,5 +1,5 @@
 CREATE TABLE `merchants` (
-    `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+    `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
     `name` VARCHAR(64) NOT NULL COMMENT '商户名称',
     `logo_url` VARCHAR(256) NOT NULL COMMENT '商户 logo URL',
     `business_license_url` VARCHAR(256) NOT NULL COMMENT '商户营业执照 URL',
