@@ -5,7 +5,7 @@ import lombok.AllArgsConstructor;
 @AllArgsConstructor
 public enum ErrorCode {
 
-    SUCCESS(0, ""),
+    SUCCESS(0, ""),    // TODO: ErrorCode 中不应该有 SUCCESS
     DUPLICATE_NAME(1, "商户命名重复"),
     EMPTY_LOGO(2, "商户 logo 为空"),
     EMPTY_BUSINESS_LICENSE(3, "商户营业执照为空"),
