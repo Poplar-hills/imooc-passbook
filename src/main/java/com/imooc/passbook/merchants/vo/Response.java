@@ -19,7 +19,7 @@ public class Response {
     // 错误信息
     private String errorMsg = "";
 
-    // 返回 VO
+    // 返回 VO 对象
     private Object data;
 
     // 正确的响应的构造函数（返回 VO）

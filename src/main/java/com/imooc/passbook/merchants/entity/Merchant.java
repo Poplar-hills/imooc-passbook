@@ -1,6 +1,7 @@
 package com.imooc.passbook.merchants.entity;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -11,6 +12,7 @@ import javax.persistence.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "merchants")
+@Builder
 public class Merchant {
 
     @Id

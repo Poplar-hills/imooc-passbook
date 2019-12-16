@@ -2,6 +2,7 @@ package com.imooc.passbook.merchants.vo;
 
 import com.imooc.passbook.merchants.constants.ErrorCode;
 import com.imooc.passbook.merchants.dao.MerchantDao;
+import com.imooc.passbook.merchants.entity.Merchant;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -49,5 +50,18 @@ public class CreateMerchantRequest {
         Matcher m = p.matcher(phone);
         if (!m.matches())
             return ErrorCode.ERROR_PHONE;
+
+        return ErrorCode.SUCCESS;
+    }
+
+    // 将商户请求对象转化成为商户实体对象
+    public Merchant toMerchant() {
+        return Merchant.builder()
+            .name(name)
+            .logoUrl(logoUrl)
+            .businessLicenseUrl(businessLicenseUrl)
+            .phone(phone)
+            .address(address)
+            .build();
     }
 }
