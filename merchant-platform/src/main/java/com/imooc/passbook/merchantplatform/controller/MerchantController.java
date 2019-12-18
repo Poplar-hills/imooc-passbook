@@ -38,7 +38,4 @@ public class MerchantController {
         log.info("📮 [MerchantController] issuePassTemplate: {}", passTemplate);
         return merchantService.issuePassTemplate(passTemplate);
     }
-
-
-
 }
