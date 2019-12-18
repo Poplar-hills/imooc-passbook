@@ -9,5 +9,5 @@ public class Constants {
     public static final String TOKEN_KEY = "token";
 
     // token value
-    public static final String TOKEN_VALUE = "imooc-passbook-merchants";
+    public static final String TOKEN_VALUE = "imooc-passbook-merchant-platform-token";
 }
