@@ -7,7 +7,7 @@ import lombok.Getter;
 @AllArgsConstructor
 public enum ErrorCode {
 
-    SUCCESS(0, ""),    // TODO: ErrorCode 中不应该有 SUCCESS
+    SUCCESS(0, ""),
     EMPTY_NAME(1, "商户命名为空"),
     DUPLICATE_NAME(2, "商户命名已存在"),
     EMPTY_LOGO(3, "商户 logo 为空"),

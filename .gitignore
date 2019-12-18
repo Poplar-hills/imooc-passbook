@@ -8,6 +8,10 @@
 *.iws
 *.iml
 *.ipr
+/*/.classpath
+/*/.factorypath
+/*/.project
+/*/.settings/
 
 ### NetBeans ###
 /nbproject/private/

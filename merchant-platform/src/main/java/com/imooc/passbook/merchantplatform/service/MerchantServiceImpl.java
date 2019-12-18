@@ -67,16 +67,17 @@ public class MerchantServiceImpl implements IMerchantService {
     @Override
     public Response issuePassTemplate(PassTemplate passTemplate) {
         Response response = new Response();
-        ErrorCode errorCode = passTemplate.validate(merchantDao);  // 要投放优惠券的话需先验证该优惠券是否合法
+        ErrorCode errorCode = passTemplate.validate(merchantDao);  // 先验证优惠券的有效性
 
         if (errorCode != ErrorCode.SUCCESS)
             response.setErrorInfo(errorCode);
         else {
             String passTemplateStr = JSON.toJSONString(passTemplate);
-            kafkaTemplate.send(
+            kafkaTemplate.send(            // 通过 Kafka 发送消息
                 Constants.TEMPLATE_TOPIC,  // Kafka topic
                 Constants.TEMPLATE_TOPIC,  // message key
                 passTemplateStr);          // message value
+
             log.info("📮 [issuePassTemplate] issued a passTemplate: {}", passTemplate);
         }
 

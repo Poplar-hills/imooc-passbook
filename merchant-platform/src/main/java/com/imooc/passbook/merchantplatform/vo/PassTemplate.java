@@ -19,7 +19,7 @@ import java.util.Date;
 @Builder
 public class PassTemplate {
 
-    // 所属商户 id  // TODO: 优惠券有所属商户 id，但自己没有 id???
+    // 所属商户 id  // TODO: 优惠券有所属商户 id，但自己没有 id？？？ 优惠劵不在商户 DB 里保持？？？
     private Integer id;
 
     // 优惠券标题
