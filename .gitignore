@@ -1,4 +1,5 @@
 HELP.md
+<<<<<<< HEAD
 target/
 .mvn/wrapper/maven-wrapper.jar
 !**/src/main/**
@@ -32,3 +33,21 @@ build/
 
 ### Misc ###
 imooc-merchants.log
+=======
+/*/target/
+!.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**
+!**/src/test/**
+
+
+### IntelliJ IDEA ###
+/*/.idea
+/*/*.iws
+/*/*.iml
+
+### Vscode ###
+/*/.vscode
+
+### Project ###
+/*/imooc-merchants.log
+>>>>>>> chore: minor adjustment

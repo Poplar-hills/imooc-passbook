@@ -1,9 +1,0 @@
-
-1. ThreadLocal
-    - SEE: AccessContext.java
-    - Ref: 1. 微信搜索 "什么是 ThreadLocal | 程序员小灰"
-           2. Java 中的 ThreadLocal 通常是在什么情况下使用的 | 知乎 https://www.zhihu.com/question/21709953
-
-2. Spring 拦截器
-    - SEE: AuthCheckInterceptor.java
-    - Ref: 1. SpringBoot实现过滤器、拦截器与切片 | 知乎 https://zhuanlan.zhihu.com/p/57195192
