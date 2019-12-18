@@ -1,21 +1,10 @@
-HELP.md
-<<<<<<< HEAD
-target/
-.mvn/wrapper/maven-wrapper.jar
+/*/HELP.md
+/*/target/
 !**/src/main/**
 !**/src/test/**
 
-### STS ###
-.apt_generated
-.classpath
-.factorypath
-.project
-.settings
-.springBeans
-.sts4-cache
-
 ### IntelliJ IDEA ###
-.idea
+/*/.idea
 *.iws
 *.iml
 *.ipr
@@ -28,26 +17,16 @@ target/
 /.nb-gradle/
 build/
 
-### VS Code ###
-.vscode/
-
-### Misc ###
-imooc-merchants.log
-=======
-/*/target/
-!.mvn/wrapper/maven-wrapper.jar
-!**/src/main/**
-!**/src/test/**
-
-
 ### IntelliJ IDEA ###
 /*/.idea
 /*/*.iws
 /*/*.iml
 
 ### Vscode ###
-/*/.vscode
+/*/.vscode/
 
 ### Project ###
 /*/imooc-merchants.log
->>>>>>> chore: minor adjustment
+
+### Misc ###
+.DS_Store
