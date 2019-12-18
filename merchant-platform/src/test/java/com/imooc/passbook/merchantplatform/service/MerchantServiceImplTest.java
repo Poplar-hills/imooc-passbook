@@ -2,18 +2,24 @@ package com.imooc.passbook.merchantplatform.service;
 
 import com.imooc.passbook.merchantplatform.entity.Merchant;
 import com.imooc.passbook.merchantplatform.vo.CreateMerchantRequest;
+import com.imooc.passbook.merchantplatform.vo.PassTemplate;
 import com.imooc.passbook.merchantplatform.vo.Response;
+import org.apache.commons.lang.time.DateUtils;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.kafka.test.context.EmbeddedKafka;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.Date;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @ExtendWith(SpringExtension.class)
 @SpringBootTest
+@EmbeddedKafka
 public class MerchantServiceImplTest {
 
     @Autowired
@@ -35,5 +41,22 @@ public class MerchantServiceImplTest {
 
         assertEquals(merchant.getName(), "Auska");
         assertEquals(merchant.getPhone(), "13212345678");
+    }
+
+    @Test
+    public void should_issue_pass_template() {
+        PassTemplate passTemplate = PassTemplate.builder()
+            .id(1)
+            .title("通用美食券")
+            .summary("简介：50%折扣")
+            .desc("详情：50%折扣，不能叠加使用")
+            .limit(1000L)
+            .hasToken(false)
+            .background(2)
+            .start(new Date())
+            .end(DateUtils.addDays(new Date(), 10))
+            .build();
+
+        merchantService.issuePassTemplate(passTemplate);
     }
 }

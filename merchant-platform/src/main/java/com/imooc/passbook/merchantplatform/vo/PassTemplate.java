@@ -3,6 +3,7 @@ package com.imooc.passbook.merchantplatform.vo;
 import com.imooc.passbook.merchantplatform.constants.ErrorCode;
 import com.imooc.passbook.merchantplatform.dao.MerchantDao;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -15,6 +16,7 @@ import java.util.Date;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
 public class PassTemplate {
 
     // 所属商户 id  // TODO: 优惠券有所属商户 id，但自己没有 id???

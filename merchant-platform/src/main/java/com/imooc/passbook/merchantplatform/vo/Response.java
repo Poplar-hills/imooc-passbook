@@ -1,5 +1,6 @@
 package com.imooc.passbook.merchantplatform.vo;
 
+import com.imooc.passbook.merchantplatform.constants.ErrorCode;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -25,5 +26,10 @@ public class Response {
     // 正确的响应的构造函数（返回 VO）
     public Response(Object data) {
         this.data = data;
+    }
+
+    public void setErrorInfo(ErrorCode errorCode) {
+        this.setErrorCode(errorCode.getCode());
+        this.setErrorMsg(errorCode.getDesc());
     }
 }
