@@ -38,17 +38,16 @@ public class MerchantServiceImpl implements IMerchantService {
     @Transactional   // 事务方法
     public Response createMerchant(CreateMerchantRequest request) {
         Response response = new Response();
-        ErrorCode errorCode = request.validate(merchantDao);  // 检查请求中是否提供了有效信息
 
-        if (errorCode == ErrorCode.SUCCESS) {  // 若请求有效
-            Merchant merchant = request.toMerchant();
-            Merchant savedMerchant = (Merchant) merchantDao.save(merchant);
-            response.setData(savedMerchant);
-        } else {
-            response.setErrorCode(errorCode.getCode());
-            response.setErrorMsg(errorCode.getDesc());
+        ErrorCode e = request.validate(merchantDao);  // 检查请求中的 name 是否有效
+        if (e != ErrorCode.SUCCESS) {
+            response.setErrorInfo(e);
+            return response;
         }
 
+        Merchant merchant = request.toMerchant();
+        Merchant savedMerchant = merchantDao.save(merchant);
+        response.setData(savedMerchant);
         return response;
     }
 

@@ -9,6 +9,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
+
 @Slf4j
 @RestController
 @RequestMapping("/merchants")
@@ -22,7 +24,7 @@ public class MerchantController {
     }
 
     @PostMapping
-    public Response createMerchant(@RequestBody CreateMerchantRequest request) {
+    public Response createMerchant(@Valid @RequestBody CreateMerchantRequest request) {
         log.info("📮 [MerchantController] createMerchant request: {}", JSON.toJSONString(request));
         return merchantService.createMerchant(request);
     }

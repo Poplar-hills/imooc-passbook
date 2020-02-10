@@ -22,7 +22,7 @@ import javax.servlet.http.HttpServletResponse;
  * - 更多 SEE: 知识点总结.txt
  */
 
-@Component  // 拦截器也是一个需要注册的 Bean
+@Component  // 拦截器也w是一个需要注册的 Bean
 public class AuthCheckInterceptor implements HandlerInterceptor {  // 实现 Spring 的拦截器接口
 
     @Override
