@@ -37,14 +37,11 @@ public class MerchantServiceImpl implements IMerchantService {
     @Override
     @Transactional   // 事务方法
     public Response createMerchant(CreateMerchantRequest request) {
+        ErrorCode errorCode = request.validate(merchantDao);  // 检查请求是否有效
+        if (errorCode != ErrorCode.SUCCESS)
+            return Response.from(errorCode);
+
         Response response = new Response();
-
-        ErrorCode e = request.validate(merchantDao);  // 检查请求中的 name 是否有效
-        if (e != ErrorCode.SUCCESS) {
-            response.setErrorInfo(e);
-            return response;
-        }
-
         Merchant merchant = request.toMerchant();
         Merchant savedMerchant = merchantDao.save(merchant);
         response.setData(savedMerchant);
@@ -57,7 +54,7 @@ public class MerchantServiceImpl implements IMerchantService {
         Optional<Merchant> merchant = merchantDao.findById(id);
 
         if (!merchant.isPresent())
-            response.setErrorInfo(ErrorCode.MERCHANT_NOT_EXIST);
+            response.setError(ErrorCode.MERCHANT_NOT_EXIST);
 
         response.setData(merchant);
         return response;
@@ -69,7 +66,7 @@ public class MerchantServiceImpl implements IMerchantService {
         ErrorCode errorCode = passTemplate.validate(merchantDao);  // 先验证优惠券的有效性
 
         if (errorCode != ErrorCode.SUCCESS)
-            response.setErrorInfo(errorCode);
+            response.setError(errorCode);
         else {
             String passTemplateStr = JSON.toJSONString(passTemplate);
             kafkaTemplate.send(            // 通过 Kafka 发送消息

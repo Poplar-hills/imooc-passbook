@@ -4,9 +4,10 @@ import com.imooc.passbook.merchantplatform.constants.ErrorCode;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.web.bind.MethodArgumentNotValidException;
 
 /**
- * HTTP 响应
+ * HTTP 成功响应
  */
 
 @Data
@@ -14,22 +15,20 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class Response {
 
-    // 错误码，正确返回0（默认返回0）
-    private Integer errorCode = 0;
-
-    // 错误信息
-    private String errorMsg = "";
-
-    // 返回 VO 对象
     private Object data;
 
-    // 正确的响应的构造函数（返回 VO）
-    public Response(Object data) {
-        this.data = data;
+    private Integer code = 0;
+
+    private String message = "";
+
+    public void setError(ErrorCode errorCode) {
+        this.setCode(errorCode.getCode());
+        this.setMessage(errorCode.getDesc());
     }
 
-    public void setErrorInfo(ErrorCode errorCode) {
-        this.setErrorCode(errorCode.getCode());
-        this.setErrorMsg(errorCode.getDesc());
+    public static Response from(ErrorCode errorCode) {
+        Response response = new Response();
+        response.setError(errorCode);
+        return response;
     }
 }
