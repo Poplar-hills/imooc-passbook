@@ -26,7 +26,7 @@ public class MerchantServiceImpl implements IMerchantService {
 
     private final MerchantDao merchantDao;
 
-    private final KafkaTemplate<String, String> kafkaTemplate;
+    private final KafkaTemplate<String, String> kafkaTemplate;  // 注入 Kafka client
 
     @Autowired
     public MerchantServiceImpl(MerchantDao merchantDao, KafkaTemplate<String, String> kafkaTemplate) {
@@ -41,11 +41,9 @@ public class MerchantServiceImpl implements IMerchantService {
         if (errorCode != ErrorCode.SUCCESS)
             return Response.from(errorCode);
 
-        Response response = new Response();
         Merchant merchant = Merchant.from(request);
-        Merchant savedMerchant = merchantDao.save(merchant);
-        response.setData(savedMerchant);
-        return response;
+        merchantDao.save(merchant);
+        return new Response();  // TODO: 给响应添加成功的 message
     }
 
     @Override
@@ -67,16 +65,15 @@ public class MerchantServiceImpl implements IMerchantService {
         if (errorCode != ErrorCode.SUCCESS)
             return Response.from(errorCode);
 
-        Response response = new Response();
         String passTemplateStr = JSON.toJSONString(request);
-        kafkaTemplate.send(            // 通过 Kafka 发送消息
+        kafkaTemplate.send(            // 通过 Kafka client 向 broker 发送消息（进去看一下 send 源码，还可指定 partition）
             Constants.TEMPLATE_TOPIC,  // Kafka topic
             Constants.TEMPLATE_TOPIC,  // message key
             passTemplateStr);          // message value
 
         log.info("📮 [issuePassTemplate] issued a passTemplate: {}", request);
 
-        return response;
+        return new Response();
     }
 
 }

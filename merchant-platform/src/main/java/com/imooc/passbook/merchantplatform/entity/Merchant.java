@@ -36,6 +36,7 @@ public class Merchant {
     @Column(name = "address", nullable = false)
     private String address;
 
+    @Builder.Default  // ∵ @Builder annotation doesn't populate values ∴ 需要加上这个注解来给 builder 设置默认值
     @Column(name = "is_audit", nullable = false)
     private Boolean isAudit = false;  // 默认值为 false
 
