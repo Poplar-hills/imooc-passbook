@@ -2,6 +2,7 @@ package com.imooc.passbook.merchantplatform.constants;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.Setter;
 
 @Getter
 @AllArgsConstructor
@@ -16,4 +17,8 @@ public enum ErrorCode {
     private Integer code;
 
     private String desc;
+
+    public void setMessage(String message) {  // ∵ @Setter 只能用于 class 或 field type ∴ 这里要添加方法
+        this.desc = message;
+    }
 }
