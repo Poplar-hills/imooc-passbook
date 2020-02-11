@@ -6,11 +6,11 @@ spring:
     username: root
     password: frank914
   kafka:
-    bootstrap-servers: localhost:9092
+    bootstrap-servers: localhost:9092  # Kafka broker server 的地址
     consumer:
       group-id: passbook
     listener:
-      concurrency: 4
+      concurrency: 4  # TODO: 监听 topic 的消费者线程并发个数？？？
 
 server:
   port: 9527
