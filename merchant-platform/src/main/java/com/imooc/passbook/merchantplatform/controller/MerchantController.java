@@ -3,7 +3,7 @@ package com.imooc.passbook.merchantplatform.controller;
 import com.alibaba.fastjson.JSON;
 import com.imooc.passbook.merchantplatform.service.IMerchantService;
 import com.imooc.passbook.merchantplatform.vo.CreateMerchantRequest;
-import com.imooc.passbook.merchantplatform.vo.PassTemplate;
+import com.imooc.passbook.merchantplatform.vo.PassTemplateRequest;
 import com.imooc.passbook.merchantplatform.vo.Response;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,8 +36,8 @@ public class MerchantController {
     }
 
     @PostMapping("/pass-templates")
-    public Response issuePassTemplate(@RequestBody PassTemplate passTemplate) {
-        log.info("📮 [MerchantController] issuePassTemplate: {}", passTemplate);
-        return merchantService.issuePassTemplate(passTemplate);
+    public Response issuePassTemplate(@Valid @RequestBody PassTemplateRequest passTemplateRequest) {
+        log.info("📮 [MerchantController] issuePassTemplate: {}", passTemplateRequest);
+        return merchantService.issuePassTemplate(passTemplateRequest);
     }
 }

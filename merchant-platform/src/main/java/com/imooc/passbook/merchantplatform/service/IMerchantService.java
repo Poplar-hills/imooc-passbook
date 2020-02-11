@@ -1,7 +1,7 @@
 package com.imooc.passbook.merchantplatform.service;
 
 import com.imooc.passbook.merchantplatform.vo.CreateMerchantRequest;
-import com.imooc.passbook.merchantplatform.vo.PassTemplate;
+import com.imooc.passbook.merchantplatform.vo.PassTemplateRequest;
 import com.imooc.passbook.merchantplatform.vo.Response;
 
 /**
@@ -21,5 +21,5 @@ public interface IMerchantService {
     Response getMerchantById(Integer id);
 
     // 投放优惠券
-    Response issuePassTemplate(PassTemplate passTemplate);
+    Response issuePassTemplate(PassTemplateRequest passTemplateRequest);
 }

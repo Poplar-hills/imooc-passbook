@@ -2,7 +2,7 @@ package com.imooc.passbook.merchantplatform.service;
 
 import com.imooc.passbook.merchantplatform.entity.Merchant;
 import com.imooc.passbook.merchantplatform.vo.CreateMerchantRequest;
-import com.imooc.passbook.merchantplatform.vo.PassTemplate;
+import com.imooc.passbook.merchantplatform.vo.PassTemplateRequest;
 import com.imooc.passbook.merchantplatform.vo.Response;
 import org.apache.commons.lang.time.DateUtils;
 import org.junit.jupiter.api.Test;
@@ -45,7 +45,7 @@ public class MerchantServiceImplTest {
 
     @Test
     public void should_issue_pass_template() {
-        PassTemplate passTemplate = PassTemplate.builder()
+        PassTemplateRequest passTemplateRequest = PassTemplateRequest.builder()
             .id(1)
             .title("通用美食券")
             .summary("简介：50%折扣")
@@ -53,10 +53,10 @@ public class MerchantServiceImplTest {
             .limit(1000L)
             .hasToken(false)
             .background(2)
-            .start(new Date())
-            .end(DateUtils.addDays(new Date(), 10))
+            .startTime(new Date())
+            .endTime(DateUtils.addDays(new Date(), 10))
             .build();
 
-        merchantService.issuePassTemplate(passTemplate);
+        merchantService.issuePassTemplate(passTemplateRequest);
     }
 }

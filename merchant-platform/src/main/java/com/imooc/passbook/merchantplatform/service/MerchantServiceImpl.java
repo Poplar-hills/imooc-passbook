@@ -6,7 +6,7 @@ import com.imooc.passbook.merchantplatform.constants.ErrorCode;
 import com.imooc.passbook.merchantplatform.dao.MerchantDao;
 import com.imooc.passbook.merchantplatform.entity.Merchant;
 import com.imooc.passbook.merchantplatform.vo.CreateMerchantRequest;
-import com.imooc.passbook.merchantplatform.vo.PassTemplate;
+import com.imooc.passbook.merchantplatform.vo.PassTemplateRequest;
 import com.imooc.passbook.merchantplatform.vo.Response;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -50,32 +50,31 @@ public class MerchantServiceImpl implements IMerchantService {
 
     @Override
     public Response getMerchantById(Integer id) {
-        Response response = new Response();
         Optional<Merchant> merchant = merchantDao.findById(id);
 
         if (!merchant.isPresent())
-            response.setError(ErrorCode.MERCHANT_NOT_EXIST);
+            return Response.from(ErrorCode.MERCHANT_NOT_EXIST);
 
+        Response response = new Response();
         response.setData(merchant);
         return response;
     }
 
     @Override
-    public Response issuePassTemplate(PassTemplate passTemplate) {
-        Response response = new Response();
-        ErrorCode errorCode = passTemplate.validate(merchantDao);  // 先验证优惠券的有效性
+    public Response issuePassTemplate(PassTemplateRequest request) {
+        ErrorCode errorCode = request.validate(merchantDao);  // 先验证优惠券的有效性
 
         if (errorCode != ErrorCode.SUCCESS)
-            response.setError(errorCode);
-        else {
-            String passTemplateStr = JSON.toJSONString(passTemplate);
-            kafkaTemplate.send(            // 通过 Kafka 发送消息
-                Constants.TEMPLATE_TOPIC,  // Kafka topic
-                Constants.TEMPLATE_TOPIC,  // message key
-                passTemplateStr);          // message value
+            return Response.from(errorCode);
 
-            log.info("📮 [issuePassTemplate] issued a passTemplate: {}", passTemplate);
-        }
+        Response response = new Response();
+        String passTemplateStr = JSON.toJSONString(request);
+        kafkaTemplate.send(            // 通过 Kafka 发送消息
+            Constants.TEMPLATE_TOPIC,  // Kafka topic
+            Constants.TEMPLATE_TOPIC,  // message key
+            passTemplateStr);          // message value
+
+        log.info("📮 [issuePassTemplate] issued a passTemplate: {}", request);
 
         return response;
     }
