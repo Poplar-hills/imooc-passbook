@@ -1,6 +1,8 @@
 package com.imooc.passbook.merchantplatform.entity;
 
+import com.imooc.passbook.merchantplatform.vo.CreateMerchantRequest;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -10,6 +12,7 @@ import javax.persistence.*;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
 @Table(name = "merchant")
 public class Merchant {
 
@@ -35,4 +38,14 @@ public class Merchant {
 
     @Column(name = "is_audit", nullable = false)
     private Boolean isAudit = false;  // 默认值为 false
+
+    public static Merchant from(CreateMerchantRequest request) {  // TODO: refactor with utils.copyProperties
+        return Merchant.builder()
+            .name(request.getName())
+            .logoUrl(request.getLogoUrl())
+            .businessLicenseUrl(request.getBusinessLicenseUrl())
+            .phone(request.getPhone())
+            .address(request.getAddress())
+            .build();
+    }
 }

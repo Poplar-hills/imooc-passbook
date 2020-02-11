@@ -22,7 +22,7 @@ import java.util.Date;
 public class PassTemplateRequest {
 
     @NotNull(message = "商户 id 为空")
-    private Integer id;  // TODO: 优惠券有所属商户 id，但自己没有 id？？？ 优惠劵不在商户 DB 里保持？？？
+    private Integer id;
 
     @NotBlank(message = "优惠券标题为空")
     private String title;
@@ -49,8 +49,8 @@ public class PassTemplateRequest {
     private Date endTime;
 
     public ErrorCode validate(MerchantDao merchantDao) {
-        return !merchantDao.findById(id).isPresent()  // 通过 MerchantDao 去 DB 中对 id 进行有效性校验
-            ? ErrorCode.MERCHANT_NOT_EXIST
-            : ErrorCode.SUCCESS;
+        return merchantDao.findById(id).isPresent()  // 通过 MerchantDao 去 DB 中对 id 进行有效性校验
+            ? ErrorCode.SUCCESS
+            : ErrorCode.MERCHANT_NOT_EXIST;
     }
 }

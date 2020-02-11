@@ -35,21 +35,9 @@ public class CreateMerchantRequest {
     @NotBlank(message = "商户地址为空")
     private String address;
 
-    // 验证请求中字段的有效性
-    public ErrorCode validate(MerchantDao merchantDao) {
-        return merchantDao.findByName(name).isPresent()
+    public ErrorCode validate(MerchantDao merchantDao) {  // TODO: [question] 需要特地去 DB 中交易一次？为何不直接 save？
+        return merchantDao.findByName(name).isPresent()  // 通过 MerchantDao 去 DB 中对 name 进行有效性校验
             ? ErrorCode.DUPLICATE_NAME
             : ErrorCode.SUCCESS;
-    }
-
-    // 将商户请求对象转化成为商户实体对象
-    public Merchant toMerchant() {
-        Merchant merchant = new Merchant();
-        merchant.setName(name);
-        merchant.setLogoUrl(logoUrl);
-        merchant.setBusinessLicenseUrl(businessLicenseUrl);
-        merchant.setPhone(phone);
-        merchant.setAddress(address);
-        return merchant;
     }
 }

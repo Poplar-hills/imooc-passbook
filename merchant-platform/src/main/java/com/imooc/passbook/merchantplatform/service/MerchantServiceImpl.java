@@ -42,7 +42,7 @@ public class MerchantServiceImpl implements IMerchantService {
             return Response.from(errorCode);
 
         Response response = new Response();
-        Merchant merchant = request.toMerchant();
+        Merchant merchant = Merchant.from(request);
         Merchant savedMerchant = merchantDao.save(merchant);
         response.setData(savedMerchant);
         return response;
