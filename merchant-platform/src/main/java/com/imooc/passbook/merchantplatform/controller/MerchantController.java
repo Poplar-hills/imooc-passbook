@@ -16,28 +16,28 @@ import javax.validation.Valid;
 @RequestMapping("/merchants")
 public class MerchantController {
 
-    private final IMerchantService merchantService;
+  private final IMerchantService merchantService;
 
-    @Autowired
-    public MerchantController(IMerchantService merchantService) {
-        this.merchantService = merchantService;
-    }
+  @Autowired
+  public MerchantController(IMerchantService merchantService) {
+    this.merchantService = merchantService;
+  }
 
-    @PostMapping
-    public Response createMerchant(@Valid @RequestBody CreateMerchantRequest request) {
-        log.info("📮 [MerchantController] createMerchant request: {}", JSON.toJSONString(request));
-        return merchantService.createMerchant(request);
-    }
+  @PostMapping
+  public Response createMerchant(@Valid @RequestBody CreateMerchantRequest request) {
+    log.info("📮 [MerchantController] createMerchant request: {}", JSON.toJSONString(request));
+    return merchantService.createMerchant(request);
+  }
 
-    @GetMapping("/{id}")
-    public Response getMerchant(@PathVariable Integer id) {
-        log.info("📮 [MerchantController] getMerchant with id: {}", id);
-        return merchantService.getMerchantById(id);
-    }
+  @GetMapping("/{id}")
+  public Response getMerchant(@PathVariable Integer id) {
+    log.info("📮 [MerchantController] getMerchant with id: {}", id);
+    return merchantService.getMerchantById(id);
+  }
 
-    @PostMapping("/pass-templates")
-    public Response issuePassTemplate(@Valid @RequestBody PassTemplateRequest passTemplateRequest) {
-        log.info("📮 [MerchantController] issuePassTemplate: {}", passTemplateRequest);
-        return merchantService.issuePassTemplate(passTemplateRequest);
-    }
+  @PostMapping("/pass-templates")
+  public Response issuePassTemplate(@Valid @RequestBody PassTemplateRequest passTemplateRequest) {
+    log.info("📮 [MerchantController] issuePassTemplate: {}", passTemplateRequest);
+    return merchantService.issuePassTemplate(passTemplateRequest);
+  }
 }

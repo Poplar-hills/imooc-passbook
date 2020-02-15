@@ -25,33 +25,33 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 @SpringBootTest
 public class MerchantServiceImplTest {
 
-    @InjectMocks
-    private MerchantServiceImpl merchantService;
+  @InjectMocks
+  private MerchantServiceImpl merchantService;
 
-    @Mock
-    private MerchantDao merchantDao;
+  @Mock
+  private MerchantDao merchantDao;
 
-    @Captor
-    private ArgumentCaptor<Merchant> merchantCaptor;
+  @Captor
+  private ArgumentCaptor<Merchant> merchantCaptor;
 
-    @Test
-    @Transactional  // 该注解让 Spring boot test 在测试运行结束后恢复 DB 的数据状态，保持与测试运行之前一致
-    public void should_create_merchant() {
-        CreateMerchantRequest request = CreateMerchantRequest.builder()
-            .name("Auska")
-            .logoUrl("www.abc.com")
-            .businessLicenseUrl("www.123.com")
-            .address("14 Honeysuckle Road")
-            .phone("13212345678")
-            .build();
+  @Test
+  @Transactional  // 该注解让 Spring boot test 在测试运行结束后恢复 DB 的数据状态，保持与测试运行之前一致
+  public void should_create_merchant() {
+    CreateMerchantRequest request = CreateMerchantRequest.builder()
+        .name("Auska")
+        .logoUrl("www.abc.com")
+        .businessLicenseUrl("www.123.com")
+        .address("14 Honeysuckle Road")
+        .phone("13212345678")
+        .build();
 
-        merchantService.createMerchant(request);
+    merchantService.createMerchant(request);
 
-        verify(merchantDao).save(merchantCaptor.capture());
-        Merchant merchant = merchantCaptor.getValue();
+    verify(merchantDao).save(merchantCaptor.capture());
+    Merchant merchant = merchantCaptor.getValue();
 
-        assertEquals(merchant.getName(), "Auska");
-        assertEquals(merchant.getPhone(), "13212345678");
-    }
+    assertEquals(merchant.getName(), "Auska");
+    assertEquals(merchant.getPhone(), "13212345678");
+  }
 
 }

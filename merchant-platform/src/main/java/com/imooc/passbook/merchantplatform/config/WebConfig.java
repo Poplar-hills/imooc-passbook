@@ -9,19 +9,19 @@ import javax.annotation.Resource;
 
 /**
  * 注册、配置拦截器
- *
+ * <p>
  * - 让 AuthCheckInterceptor 只拦截以 "/merchants" 开头的请求
  */
 
 @Configuration
 public class WebConfig implements WebMvcConfigurer {
 
-    @Resource
-    private AuthCheckInterceptor authCheckInterceptor;
+  @Resource
+  private AuthCheckInterceptor authCheckInterceptor;
 
-    @Override
-    public void addInterceptors(InterceptorRegistry registry) {
-        registry.addInterceptor(authCheckInterceptor)
-                .addPathPatterns("/merchants/**");      // 拦截所有以 "/merchants" 开头的请求
-    }
+  @Override
+  public void addInterceptors(InterceptorRegistry registry) {
+    registry.addInterceptor(authCheckInterceptor)
+        .addPathPatterns("/merchants/**");      // 拦截所有以 "/merchants" 开头的请求
+  }
 }

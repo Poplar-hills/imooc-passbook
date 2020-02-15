@@ -1,0 +1,220 @@
+2020-02-16 00:00:25.918 DEBUG 4292 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2020-02-16 00:00:27.862 DEBUG 4292 --- [Catalina-utility-1] org.apache.catalina.session.ManagerBase  : Start expire sessions StandardManager at 1581782427862 sessioncount 0
+2020-02-16 00:00:27.862 DEBUG 4292 --- [Catalina-utility-1] org.apache.catalina.session.ManagerBase  : End expire sessions StandardManager processingTime 0 expired sessions: 0
+2020-02-16 00:00:55.934 DEBUG 4292 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2020-02-16 00:01:25.935 DEBUG 4292 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2020-02-16 00:01:27.882 DEBUG 4292 --- [Catalina-utility-1] org.apache.catalina.session.ManagerBase  : Start expire sessions StandardManager at 1581782487882 sessioncount 0
+2020-02-16 00:01:27.884 DEBUG 4292 --- [Catalina-utility-1] org.apache.catalina.session.ManagerBase  : End expire sessions StandardManager processingTime 1 expired sessions: 0
+2020-02-16 00:01:55.939 DEBUG 4292 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2020-02-16 00:02:25.941 DEBUG 4292 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2020-02-16 00:02:27.908 DEBUG 4292 --- [Catalina-utility-2] org.apache.catalina.session.ManagerBase  : Start expire sessions StandardManager at 1581782547908 sessioncount 0
+2020-02-16 00:02:27.908 DEBUG 4292 --- [Catalina-utility-2] org.apache.catalina.session.ManagerBase  : End expire sessions StandardManager processingTime 0 expired sessions: 0
+2020-02-16 00:02:43.332 DEBUG 4292 --- [HikariPool-1 connection closer] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Closing connection com.mysql.cj.jdbc.ConnectionImpl@20a29ffc: (connection has passed maxLifetime)
+2020-02-16 00:02:43.356 DEBUG 4292 --- [HikariPool-1 connection adder] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@414e86cb
+2020-02-16 00:02:50.945 DEBUG 4292 --- [HikariPool-1 connection closer] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Closing connection com.mysql.cj.jdbc.ConnectionImpl@619f95c7: (connection has passed maxLifetime)
+2020-02-16 00:02:50.957 DEBUG 4292 --- [HikariPool-1 connection adder] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@baeae7d
+2020-02-16 00:02:51.163 DEBUG 4292 --- [HikariPool-1 connection closer] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Closing connection com.mysql.cj.jdbc.ConnectionImpl@608b09bc: (connection has passed maxLifetime)
+2020-02-16 00:02:51.176 DEBUG 4292 --- [HikariPool-1 connection adder] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@4a93a446
+2020-02-16 00:02:55.969 DEBUG 4292 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2020-02-16 00:03:07.421 DEBUG 4292 --- [HikariPool-1 connection closer] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Closing connection com.mysql.cj.jdbc.ConnectionImpl@28dcd89: (connection has passed maxLifetime)
+2020-02-16 00:03:07.444 DEBUG 4292 --- [HikariPool-1 connection adder] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@7cdba929
+2020-02-16 00:03:25.977 DEBUG 4292 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2020-02-16 00:03:27.968 DEBUG 4292 --- [Catalina-utility-2] org.apache.catalina.session.ManagerBase  : Start expire sessions StandardManager at 1581782607968 sessioncount 0
+2020-02-16 00:03:27.969 DEBUG 4292 --- [Catalina-utility-2] org.apache.catalina.session.ManagerBase  : End expire sessions StandardManager processingTime 1 expired sessions: 0
+2020-02-16 00:03:47.411 DEBUG 4292 --- [HikariPool-1 connection closer] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Closing connection com.mysql.cj.jdbc.ConnectionImpl@24fe3df6: (connection has passed maxLifetime)
+2020-02-16 00:03:47.412 DEBUG 4292 --- [HikariPool-1 connection closer] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Closing connection com.mysql.cj.jdbc.ConnectionImpl@56a3ebc6: (connection has passed maxLifetime)
+2020-02-16 00:03:47.420 DEBUG 4292 --- [HikariPool-1 connection adder] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@21dacfa3
+2020-02-16 00:03:47.427 DEBUG 4292 --- [HikariPool-1 connection adder] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@60e7c598
+2020-02-16 00:03:48.167 DEBUG 4292 --- [HikariPool-1 connection closer] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Closing connection com.mysql.cj.jdbc.ConnectionImpl@7e1f2764: (connection has passed maxLifetime)
+2020-02-16 00:03:48.236 DEBUG 4292 --- [HikariPool-1 connection adder] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@51cd25b7
+2020-02-16 00:03:55.478 DEBUG 4292 --- [kafka-producer-network-thread | producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=producer-1] Sending metadata request MetadataRequestData(topics=[], allowAutoTopicCreation=true, includeClusterAuthorizedOperations=false, includeTopicAuthorizedOperations=false) to node localhost:9092 (id: 0 rack: null)
+2020-02-16 00:03:55.480 DEBUG 4292 --- [kafka-producer-network-thread | producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=producer-1] Updated cluster metadata updateVersion 43 to MetadataCache{cluster=Cluster(id = qf_q_Z-aRL2GXbv8hPc74g, nodes = [localhost:9092 (id: 0 rack: null)], partitions = [], controller = localhost:9092 (id: 0 rack: null))}
+2020-02-16 00:03:55.981 DEBUG 4292 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2020-02-16 00:04:19.361 DEBUG 4292 --- [HikariPool-1 connection closer] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Closing connection com.mysql.cj.jdbc.ConnectionImpl@42a052c6: (connection has passed maxLifetime)
+2020-02-16 00:04:19.375 DEBUG 4292 --- [HikariPool-1 connection adder] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@77da3c35
+2020-02-16 00:04:24.996 DEBUG 4292 --- [HikariPool-1 connection closer] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Closing connection com.mysql.cj.jdbc.ConnectionImpl@4a1b71f2: (connection has passed maxLifetime)
+2020-02-16 00:04:25.014 DEBUG 4292 --- [HikariPool-1 connection adder] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@587f193b
+2020-02-16 00:04:25.982 DEBUG 4292 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2020-02-16 00:04:27.988 DEBUG 4292 --- [Catalina-utility-1] org.apache.catalina.session.ManagerBase  : Start expire sessions StandardManager at 1581782667987 sessioncount 0
+2020-02-16 00:04:27.989 DEBUG 4292 --- [Catalina-utility-1] org.apache.catalina.session.ManagerBase  : End expire sessions StandardManager processingTime 1 expired sessions: 0
+2020-02-16 00:04:46.733 DEBUG 4292 --- [HikariPool-1 connection closer] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Closing connection com.mysql.cj.jdbc.ConnectionImpl@1a1ca27c: (connection has passed maxLifetime)
+2020-02-16 00:04:46.754 DEBUG 4292 --- [HikariPool-1 connection adder] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@2a4a6e9
+2020-02-16 00:04:55.986 DEBUG 4292 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2020-02-16 00:05:25.986 DEBUG 4292 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2020-02-16 00:05:28.003 DEBUG 4292 --- [Catalina-utility-1] org.apache.catalina.session.ManagerBase  : Start expire sessions StandardManager at 1581782728003 sessioncount 0
+2020-02-16 00:05:28.003 DEBUG 4292 --- [Catalina-utility-1] org.apache.catalina.session.ManagerBase  : End expire sessions StandardManager processingTime 0 expired sessions: 0
+2020-02-16 00:05:55.989 DEBUG 4292 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2020-02-16 00:06:25.990 DEBUG 4292 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2020-02-16 00:06:28.021 DEBUG 4292 --- [Catalina-utility-2] org.apache.catalina.session.ManagerBase  : Start expire sessions StandardManager at 1581782788020 sessioncount 0
+2020-02-16 00:06:28.021 DEBUG 4292 --- [Catalina-utility-2] org.apache.catalina.session.ManagerBase  : End expire sessions StandardManager processingTime 1 expired sessions: 0
+2020-02-16 00:06:55.995 DEBUG 4292 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2020-02-16 00:07:25.997 DEBUG 4292 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2020-02-16 00:07:28.039 DEBUG 4292 --- [Catalina-utility-1] org.apache.catalina.session.ManagerBase  : Start expire sessions StandardManager at 1581782848039 sessioncount 0
+2020-02-16 00:07:28.040 DEBUG 4292 --- [Catalina-utility-1] org.apache.catalina.session.ManagerBase  : End expire sessions StandardManager processingTime 1 expired sessions: 0
+2020-02-16 00:07:55.999 DEBUG 4292 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2020-02-16 00:08:26.005 DEBUG 4292 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2020-02-16 00:08:28.057 DEBUG 4292 --- [Catalina-utility-2] org.apache.catalina.session.ManagerBase  : Start expire sessions StandardManager at 1581782908057 sessioncount 0
+2020-02-16 00:08:28.057 DEBUG 4292 --- [Catalina-utility-2] org.apache.catalina.session.ManagerBase  : End expire sessions StandardManager processingTime 0 expired sessions: 0
+2020-02-16 00:08:55.485 DEBUG 4292 --- [kafka-producer-network-thread | producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=producer-1] Sending metadata request MetadataRequestData(topics=[], allowAutoTopicCreation=true, includeClusterAuthorizedOperations=false, includeTopicAuthorizedOperations=false) to node localhost:9092 (id: 0 rack: null)
+2020-02-16 00:08:55.487 DEBUG 4292 --- [kafka-producer-network-thread | producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=producer-1] Updated cluster metadata updateVersion 44 to MetadataCache{cluster=Cluster(id = qf_q_Z-aRL2GXbv8hPc74g, nodes = [localhost:9092 (id: 0 rack: null)], partitions = [], controller = localhost:9092 (id: 0 rack: null))}
+2020-02-16 00:08:56.008 DEBUG 4292 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2020-02-16 00:09:26.009 DEBUG 4292 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2020-02-16 00:09:28.073 DEBUG 4292 --- [Catalina-utility-2] org.apache.catalina.session.ManagerBase  : Start expire sessions StandardManager at 1581782968073 sessioncount 0
+2020-02-16 00:09:28.073 DEBUG 4292 --- [Catalina-utility-2] org.apache.catalina.session.ManagerBase  : End expire sessions StandardManager processingTime 0 expired sessions: 0
+2020-02-16 00:09:56.013 DEBUG 4292 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2020-02-16 00:10:26.013 DEBUG 4292 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2020-02-16 00:10:28.094 DEBUG 4292 --- [Catalina-utility-2] org.apache.catalina.session.ManagerBase  : Start expire sessions StandardManager at 1581783028094 sessioncount 0
+2020-02-16 00:10:28.095 DEBUG 4292 --- [Catalina-utility-2] org.apache.catalina.session.ManagerBase  : End expire sessions StandardManager processingTime 1 expired sessions: 0
+2020-02-16 00:10:56.015 DEBUG 4292 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2020-02-16 00:11:26.020 DEBUG 4292 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2020-02-16 00:11:28.115 DEBUG 4292 --- [Catalina-utility-1] org.apache.catalina.session.ManagerBase  : Start expire sessions StandardManager at 1581783088114 sessioncount 0
+2020-02-16 00:11:28.115 DEBUG 4292 --- [Catalina-utility-1] org.apache.catalina.session.ManagerBase  : End expire sessions StandardManager processingTime 1 expired sessions: 0
+2020-02-16 00:11:56.025 DEBUG 4292 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2020-02-16 00:12:26.029 DEBUG 4292 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2020-02-16 00:12:28.129 DEBUG 4292 --- [Catalina-utility-1] org.apache.catalina.session.ManagerBase  : Start expire sessions StandardManager at 1581783148129 sessioncount 0
+2020-02-16 00:12:28.129 DEBUG 4292 --- [Catalina-utility-1] org.apache.catalina.session.ManagerBase  : End expire sessions StandardManager processingTime 0 expired sessions: 0
+2020-02-16 00:12:56.031 DEBUG 4292 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2020-02-16 00:13:26.035 DEBUG 4292 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2020-02-16 00:13:28.152 DEBUG 4292 --- [Catalina-utility-2] org.apache.catalina.session.ManagerBase  : Start expire sessions StandardManager at 1581783208152 sessioncount 0
+2020-02-16 00:13:28.153 DEBUG 4292 --- [Catalina-utility-2] org.apache.catalina.session.ManagerBase  : End expire sessions StandardManager processingTime 1 expired sessions: 0
+2020-02-16 00:13:55.491 DEBUG 4292 --- [kafka-producer-network-thread | producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=producer-1] Sending metadata request MetadataRequestData(topics=[], allowAutoTopicCreation=true, includeClusterAuthorizedOperations=false, includeTopicAuthorizedOperations=false) to node localhost:9092 (id: 0 rack: null)
+2020-02-16 00:13:55.494 DEBUG 4292 --- [kafka-producer-network-thread | producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=producer-1] Updated cluster metadata updateVersion 45 to MetadataCache{cluster=Cluster(id = qf_q_Z-aRL2GXbv8hPc74g, nodes = [localhost:9092 (id: 0 rack: null)], partitions = [], controller = localhost:9092 (id: 0 rack: null))}
+2020-02-16 00:13:56.040 DEBUG 4292 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2020-02-16 00:14:26.045 DEBUG 4292 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2020-02-16 00:14:28.173 DEBUG 4292 --- [Catalina-utility-1] org.apache.catalina.session.ManagerBase  : Start expire sessions StandardManager at 1581783268173 sessioncount 0
+2020-02-16 00:14:28.173 DEBUG 4292 --- [Catalina-utility-1] org.apache.catalina.session.ManagerBase  : End expire sessions StandardManager processingTime 0 expired sessions: 0
+2020-02-16 00:14:56.048 DEBUG 4292 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2020-02-16 00:15:26.051 DEBUG 4292 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2020-02-16 00:15:28.196 DEBUG 4292 --- [Catalina-utility-1] org.apache.catalina.session.ManagerBase  : Start expire sessions StandardManager at 1581783328196 sessioncount 0
+2020-02-16 00:15:28.197 DEBUG 4292 --- [Catalina-utility-1] org.apache.catalina.session.ManagerBase  : End expire sessions StandardManager processingTime 1 expired sessions: 0
+2020-02-16 00:15:56.056 DEBUG 4292 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2020-02-16 00:16:26.061 DEBUG 4292 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2020-02-16 00:16:28.212 DEBUG 4292 --- [Catalina-utility-2] org.apache.catalina.session.ManagerBase  : Start expire sessions StandardManager at 1581783388212 sessioncount 0
+2020-02-16 00:16:28.212 DEBUG 4292 --- [Catalina-utility-2] org.apache.catalina.session.ManagerBase  : End expire sessions StandardManager processingTime 0 expired sessions: 0
+2020-02-16 00:16:56.061 DEBUG 4292 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2020-02-16 00:17:26.066 DEBUG 4292 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2020-02-16 00:17:28.227 DEBUG 4292 --- [Catalina-utility-2] org.apache.catalina.session.ManagerBase  : Start expire sessions StandardManager at 1581783448227 sessioncount 0
+2020-02-16 00:17:28.227 DEBUG 4292 --- [Catalina-utility-2] org.apache.catalina.session.ManagerBase  : End expire sessions StandardManager processingTime 0 expired sessions: 0
+2020-02-16 00:17:56.070 DEBUG 4292 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2020-02-16 00:18:26.070 DEBUG 4292 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2020-02-16 00:18:28.244 DEBUG 4292 --- [Catalina-utility-1] org.apache.catalina.session.ManagerBase  : Start expire sessions StandardManager at 1581783508244 sessioncount 0
+2020-02-16 00:18:28.244 DEBUG 4292 --- [Catalina-utility-1] org.apache.catalina.session.ManagerBase  : End expire sessions StandardManager processingTime 0 expired sessions: 0
+2020-02-16 00:18:55.498 DEBUG 4292 --- [kafka-producer-network-thread | producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=producer-1] Sending metadata request MetadataRequestData(topics=[], allowAutoTopicCreation=true, includeClusterAuthorizedOperations=false, includeTopicAuthorizedOperations=false) to node localhost:9092 (id: 0 rack: null)
+2020-02-16 00:18:55.499 DEBUG 4292 --- [kafka-producer-network-thread | producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=producer-1] Updated cluster metadata updateVersion 46 to MetadataCache{cluster=Cluster(id = qf_q_Z-aRL2GXbv8hPc74g, nodes = [localhost:9092 (id: 0 rack: null)], partitions = [], controller = localhost:9092 (id: 0 rack: null))}
+2020-02-16 00:18:56.074 DEBUG 4292 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2020-02-16 00:19:26.080 DEBUG 4292 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2020-02-16 00:19:28.262 DEBUG 4292 --- [Catalina-utility-1] org.apache.catalina.session.ManagerBase  : Start expire sessions StandardManager at 1581783568262 sessioncount 0
+2020-02-16 00:19:28.263 DEBUG 4292 --- [Catalina-utility-1] org.apache.catalina.session.ManagerBase  : End expire sessions StandardManager processingTime 1 expired sessions: 0
+2020-02-16 00:19:56.084 DEBUG 4292 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2020-02-16 00:20:26.087 DEBUG 4292 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2020-02-16 00:20:28.271 DEBUG 4292 --- [Catalina-utility-1] org.apache.catalina.session.ManagerBase  : Start expire sessions StandardManager at 1581783628271 sessioncount 0
+2020-02-16 00:20:28.271 DEBUG 4292 --- [Catalina-utility-1] org.apache.catalina.session.ManagerBase  : End expire sessions StandardManager processingTime 0 expired sessions: 0
+2020-02-16 00:20:56.090 DEBUG 4292 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2020-02-16 00:21:26.094 DEBUG 4292 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2020-02-16 00:21:28.296 DEBUG 4292 --- [Catalina-utility-1] org.apache.catalina.session.ManagerBase  : Start expire sessions StandardManager at 1581783688296 sessioncount 0
+2020-02-16 00:21:28.296 DEBUG 4292 --- [Catalina-utility-1] org.apache.catalina.session.ManagerBase  : End expire sessions StandardManager processingTime 0 expired sessions: 0
+2020-02-16 00:21:56.100 DEBUG 4292 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2020-02-16 00:22:26.100 DEBUG 4292 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2020-02-16 00:22:28.310 DEBUG 4292 --- [Catalina-utility-1] org.apache.catalina.session.ManagerBase  : Start expire sessions StandardManager at 1581783748310 sessioncount 0
+2020-02-16 00:22:28.310 DEBUG 4292 --- [Catalina-utility-1] org.apache.catalina.session.ManagerBase  : End expire sessions StandardManager processingTime 0 expired sessions: 0
+2020-02-16 00:22:56.105 DEBUG 4292 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2020-02-16 00:23:26.109 DEBUG 4292 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2020-02-16 00:23:28.328 DEBUG 4292 --- [Catalina-utility-2] org.apache.catalina.session.ManagerBase  : Start expire sessions StandardManager at 1581783808328 sessioncount 0
+2020-02-16 00:23:28.329 DEBUG 4292 --- [Catalina-utility-2] org.apache.catalina.session.ManagerBase  : End expire sessions StandardManager processingTime 1 expired sessions: 0
+2020-02-16 00:23:55.501 DEBUG 4292 --- [kafka-producer-network-thread | producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=producer-1] Sending metadata request MetadataRequestData(topics=[], allowAutoTopicCreation=true, includeClusterAuthorizedOperations=false, includeTopicAuthorizedOperations=false) to node localhost:9092 (id: 0 rack: null)
+2020-02-16 00:23:55.503 DEBUG 4292 --- [kafka-producer-network-thread | producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=producer-1] Updated cluster metadata updateVersion 47 to MetadataCache{cluster=Cluster(id = qf_q_Z-aRL2GXbv8hPc74g, nodes = [localhost:9092 (id: 0 rack: null)], partitions = [], controller = localhost:9092 (id: 0 rack: null))}
+2020-02-16 00:23:56.113 DEBUG 4292 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2020-02-16 00:24:26.113 DEBUG 4292 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2020-02-16 00:24:28.350 DEBUG 4292 --- [Catalina-utility-1] org.apache.catalina.session.ManagerBase  : Start expire sessions StandardManager at 1581783868350 sessioncount 0
+2020-02-16 00:24:28.351 DEBUG 4292 --- [Catalina-utility-1] org.apache.catalina.session.ManagerBase  : End expire sessions StandardManager processingTime 1 expired sessions: 0
+2020-02-16 00:24:56.116 DEBUG 4292 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2020-02-16 00:25:26.121 DEBUG 4292 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2020-02-16 00:25:28.370 DEBUG 4292 --- [Catalina-utility-2] org.apache.catalina.session.ManagerBase  : Start expire sessions StandardManager at 1581783928370 sessioncount 0
+2020-02-16 00:25:28.371 DEBUG 4292 --- [Catalina-utility-2] org.apache.catalina.session.ManagerBase  : End expire sessions StandardManager processingTime 1 expired sessions: 0
+2020-02-16 00:25:56.127 DEBUG 4292 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2020-02-16 00:26:26.132 DEBUG 4292 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2020-02-16 00:26:28.393 DEBUG 4292 --- [Catalina-utility-1] org.apache.catalina.session.ManagerBase  : Start expire sessions StandardManager at 1581783988393 sessioncount 0
+2020-02-16 00:26:28.394 DEBUG 4292 --- [Catalina-utility-1] org.apache.catalina.session.ManagerBase  : End expire sessions StandardManager processingTime 1 expired sessions: 0
+2020-02-16 00:26:56.134 DEBUG 4292 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2020-02-16 00:27:26.138 DEBUG 4292 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2020-02-16 00:27:28.409 DEBUG 4292 --- [Catalina-utility-2] org.apache.catalina.session.ManagerBase  : Start expire sessions StandardManager at 1581784048409 sessioncount 0
+2020-02-16 00:27:28.409 DEBUG 4292 --- [Catalina-utility-2] org.apache.catalina.session.ManagerBase  : End expire sessions StandardManager processingTime 0 expired sessions: 0
+2020-02-16 00:27:56.140 DEBUG 4292 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2020-02-16 00:28:26.143 DEBUG 4292 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2020-02-16 00:28:28.430 DEBUG 4292 --- [Catalina-utility-1] org.apache.catalina.session.ManagerBase  : Start expire sessions StandardManager at 1581784108430 sessioncount 0
+2020-02-16 00:28:28.430 DEBUG 4292 --- [Catalina-utility-1] org.apache.catalina.session.ManagerBase  : End expire sessions StandardManager processingTime 0 expired sessions: 0
+2020-02-16 00:28:55.502 DEBUG 4292 --- [kafka-producer-network-thread | producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=producer-1] Sending metadata request MetadataRequestData(topics=[], allowAutoTopicCreation=true, includeClusterAuthorizedOperations=false, includeTopicAuthorizedOperations=false) to node localhost:9092 (id: 0 rack: null)
+2020-02-16 00:28:55.504 DEBUG 4292 --- [kafka-producer-network-thread | producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=producer-1] Updated cluster metadata updateVersion 48 to MetadataCache{cluster=Cluster(id = qf_q_Z-aRL2GXbv8hPc74g, nodes = [localhost:9092 (id: 0 rack: null)], partitions = [], controller = localhost:9092 (id: 0 rack: null))}
+2020-02-16 00:28:56.149 DEBUG 4292 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2020-02-16 00:29:26.154 DEBUG 4292 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2020-02-16 00:29:28.442 DEBUG 4292 --- [Catalina-utility-2] org.apache.catalina.session.ManagerBase  : Start expire sessions StandardManager at 1581784168442 sessioncount 0
+2020-02-16 00:29:28.442 DEBUG 4292 --- [Catalina-utility-2] org.apache.catalina.session.ManagerBase  : End expire sessions StandardManager processingTime 0 expired sessions: 0
+2020-02-16 00:29:56.158 DEBUG 4292 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2020-02-16 00:30:26.164 DEBUG 4292 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2020-02-16 00:30:28.460 DEBUG 4292 --- [Catalina-utility-2] org.apache.catalina.session.ManagerBase  : Start expire sessions StandardManager at 1581784228460 sessioncount 0
+2020-02-16 00:30:28.460 DEBUG 4292 --- [Catalina-utility-2] org.apache.catalina.session.ManagerBase  : End expire sessions StandardManager processingTime 0 expired sessions: 0
+2020-02-16 00:30:56.168 DEBUG 4292 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2020-02-16 00:31:26.173 DEBUG 4292 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2020-02-16 00:31:28.471 DEBUG 4292 --- [Catalina-utility-2] org.apache.catalina.session.ManagerBase  : Start expire sessions StandardManager at 1581784288471 sessioncount 0
+2020-02-16 00:31:28.471 DEBUG 4292 --- [Catalina-utility-2] org.apache.catalina.session.ManagerBase  : End expire sessions StandardManager processingTime 0 expired sessions: 0
+2020-02-16 00:31:56.177 DEBUG 4292 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2020-02-16 00:32:21.938 DEBUG 4292 --- [HikariPool-1 connection closer] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Closing connection com.mysql.cj.jdbc.ConnectionImpl@baeae7d: (connection has passed maxLifetime)
+2020-02-16 00:32:21.948 DEBUG 4292 --- [HikariPool-1 connection adder] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@32d34d41
+2020-02-16 00:32:25.426 DEBUG 4292 --- [HikariPool-1 connection closer] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Closing connection com.mysql.cj.jdbc.ConnectionImpl@7cdba929: (connection has passed maxLifetime)
+2020-02-16 00:32:25.436 DEBUG 4292 --- [HikariPool-1 connection adder] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@73ee477a
+2020-02-16 00:32:26.181 DEBUG 4292 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2020-02-16 00:32:27.751 DEBUG 4292 --- [HikariPool-1 connection closer] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Closing connection com.mysql.cj.jdbc.ConnectionImpl@414e86cb: (connection has passed maxLifetime)
+2020-02-16 00:32:27.758 DEBUG 4292 --- [HikariPool-1 connection adder] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@42d7b5d4
+2020-02-16 00:32:28.490 DEBUG 4292 --- [Catalina-utility-1] org.apache.catalina.session.ManagerBase  : Start expire sessions StandardManager at 1581784348490 sessioncount 0
+2020-02-16 00:32:28.490 DEBUG 4292 --- [Catalina-utility-1] org.apache.catalina.session.ManagerBase  : End expire sessions StandardManager processingTime 0 expired sessions: 0
+2020-02-16 00:32:48.268 DEBUG 4292 --- [HikariPool-1 connection closer] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Closing connection com.mysql.cj.jdbc.ConnectionImpl@4a93a446: (connection has passed maxLifetime)
+2020-02-16 00:32:48.278 DEBUG 4292 --- [HikariPool-1 connection adder] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@48838964
+2020-02-16 00:32:56.184 DEBUG 4292 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2020-02-16 00:33:17.755 DEBUG 4292 --- [HikariPool-1 connection closer] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Closing connection com.mysql.cj.jdbc.ConnectionImpl@51cd25b7: (connection has passed maxLifetime)
+2020-02-16 00:33:17.766 DEBUG 4292 --- [HikariPool-1 connection adder] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@3c08aae7
+2020-02-16 00:33:23.839 DEBUG 4292 --- [HikariPool-1 connection closer] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Closing connection com.mysql.cj.jdbc.ConnectionImpl@21dacfa3: (connection has passed maxLifetime)
+2020-02-16 00:33:23.850 DEBUG 4292 --- [HikariPool-1 connection adder] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@78928876
+2020-02-16 00:33:26.188 DEBUG 4292 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2020-02-16 00:33:28.515 DEBUG 4292 --- [Catalina-utility-2] org.apache.catalina.session.ManagerBase  : Start expire sessions StandardManager at 1581784408515 sessioncount 0
+2020-02-16 00:33:28.516 DEBUG 4292 --- [Catalina-utility-2] org.apache.catalina.session.ManagerBase  : End expire sessions StandardManager processingTime 1 expired sessions: 0
+2020-02-16 00:33:42.660 DEBUG 4292 --- [HikariPool-1 connection closer] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Closing connection com.mysql.cj.jdbc.ConnectionImpl@77da3c35: (connection has passed maxLifetime)
+2020-02-16 00:33:42.682 DEBUG 4292 --- [HikariPool-1 connection adder] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@4338cb55
+2020-02-16 00:33:44.687 DEBUG 4292 --- [HikariPool-1 connection closer] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Closing connection com.mysql.cj.jdbc.ConnectionImpl@587f193b: (connection has passed maxLifetime)
+2020-02-16 00:33:44.696 DEBUG 4292 --- [HikariPool-1 connection adder] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@205c16e
+2020-02-16 00:33:45.962 DEBUG 4292 --- [HikariPool-1 connection closer] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Closing connection com.mysql.cj.jdbc.ConnectionImpl@60e7c598: (connection has passed maxLifetime)
+2020-02-16 00:33:45.973 DEBUG 4292 --- [HikariPool-1 connection adder] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@334da1ab
+2020-02-16 00:33:55.509 DEBUG 4292 --- [kafka-producer-network-thread | producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=producer-1] Sending metadata request MetadataRequestData(topics=[], allowAutoTopicCreation=true, includeClusterAuthorizedOperations=false, includeTopicAuthorizedOperations=false) to node localhost:9092 (id: 0 rack: null)
+2020-02-16 00:33:55.511 DEBUG 4292 --- [kafka-producer-network-thread | producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=producer-1] Updated cluster metadata updateVersion 49 to MetadataCache{cluster=Cluster(id = qf_q_Z-aRL2GXbv8hPc74g, nodes = [localhost:9092 (id: 0 rack: null)], partitions = [], controller = localhost:9092 (id: 0 rack: null))}
+2020-02-16 00:33:56.189 DEBUG 4292 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2020-02-16 00:34:26.192 DEBUG 4292 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2020-02-16 00:34:28.538 DEBUG 4292 --- [Catalina-utility-2] org.apache.catalina.session.ManagerBase  : Start expire sessions StandardManager at 1581784468538 sessioncount 0
+2020-02-16 00:34:28.539 DEBUG 4292 --- [Catalina-utility-2] org.apache.catalina.session.ManagerBase  : End expire sessions StandardManager processingTime 0 expired sessions: 0
+2020-02-16 00:34:39.361 DEBUG 4292 --- [HikariPool-1 connection closer] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Closing connection com.mysql.cj.jdbc.ConnectionImpl@2a4a6e9: (connection has passed maxLifetime)
+2020-02-16 00:34:39.385 DEBUG 4292 --- [HikariPool-1 connection adder] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@2a533a3c
+2020-02-16 00:34:56.193 DEBUG 4292 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2020-02-16 00:35:26.196 DEBUG 4292 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2020-02-16 00:35:28.551 DEBUG 4292 --- [Catalina-utility-2] org.apache.catalina.session.ManagerBase  : Start expire sessions StandardManager at 1581784528551 sessioncount 0
+2020-02-16 00:35:28.551 DEBUG 4292 --- [Catalina-utility-2] org.apache.catalina.session.ManagerBase  : End expire sessions StandardManager processingTime 0 expired sessions: 0
+2020-02-16 00:35:56.208 DEBUG 4292 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2020-02-16 00:36:26.226 DEBUG 4292 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2020-02-16 00:36:28.586 DEBUG 4292 --- [Catalina-utility-2] org.apache.catalina.session.ManagerBase  : Start expire sessions StandardManager at 1581784588586 sessioncount 0
+2020-02-16 00:36:28.587 DEBUG 4292 --- [Catalina-utility-2] org.apache.catalina.session.ManagerBase  : End expire sessions StandardManager processingTime 1 expired sessions: 0
+2020-02-16 00:36:56.234 DEBUG 4292 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2020-02-16 00:37:26.240 DEBUG 4292 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2020-02-16 00:37:28.601 DEBUG 4292 --- [Catalina-utility-1] org.apache.catalina.session.ManagerBase  : Start expire sessions StandardManager at 1581784648601 sessioncount 0
+2020-02-16 00:37:28.602 DEBUG 4292 --- [Catalina-utility-1] org.apache.catalina.session.ManagerBase  : End expire sessions StandardManager processingTime 1 expired sessions: 0
+2020-02-16 00:37:56.245 DEBUG 4292 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2020-02-16 00:38:26.249 DEBUG 4292 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2020-02-16 00:38:28.621 DEBUG 4292 --- [Catalina-utility-2] org.apache.catalina.session.ManagerBase  : Start expire sessions StandardManager at 1581784708620 sessioncount 0
+2020-02-16 00:38:28.621 DEBUG 4292 --- [Catalina-utility-2] org.apache.catalina.session.ManagerBase  : End expire sessions StandardManager processingTime 1 expired sessions: 0
+2020-02-16 00:38:55.515 DEBUG 4292 --- [kafka-producer-network-thread | producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=producer-1] Sending metadata request MetadataRequestData(topics=[], allowAutoTopicCreation=true, includeClusterAuthorizedOperations=false, includeTopicAuthorizedOperations=false) to node localhost:9092 (id: 0 rack: null)
+2020-02-16 00:38:55.516 DEBUG 4292 --- [kafka-producer-network-thread | producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=producer-1] Updated cluster metadata updateVersion 50 to MetadataCache{cluster=Cluster(id = qf_q_Z-aRL2GXbv8hPc74g, nodes = [localhost:9092 (id: 0 rack: null)], partitions = [], controller = localhost:9092 (id: 0 rack: null))}
+2020-02-16 00:38:56.249 DEBUG 4292 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2020-02-16 00:39:26.252 DEBUG 4292 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2020-02-16 00:39:28.640 DEBUG 4292 --- [Catalina-utility-2] org.apache.catalina.session.ManagerBase  : Start expire sessions StandardManager at 1581784768639 sessioncount 0
+2020-02-16 00:39:28.640 DEBUG 4292 --- [Catalina-utility-2] org.apache.catalina.session.ManagerBase  : End expire sessions StandardManager processingTime 1 expired sessions: 0
+2020-02-16 00:39:56.257 DEBUG 4292 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2020-02-16 00:40:26.261 DEBUG 4292 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2020-02-16 00:40:28.660 DEBUG 4292 --- [Catalina-utility-2] org.apache.catalina.session.ManagerBase  : Start expire sessions StandardManager at 1581784828660 sessioncount 0
+2020-02-16 00:40:28.660 DEBUG 4292 --- [Catalina-utility-2] org.apache.catalina.session.ManagerBase  : End expire sessions StandardManager processingTime 0 expired sessions: 0
+2020-02-16 00:40:56.262 DEBUG 4292 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Pool stats (total=10, active=0, idle=10, waiting=0)

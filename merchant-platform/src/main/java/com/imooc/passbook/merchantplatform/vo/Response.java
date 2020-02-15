@@ -15,20 +15,20 @@ import org.springframework.web.bind.MethodArgumentNotValidException;
 @AllArgsConstructor
 public class Response {
 
-    private Object data;
+  private Object data;
 
-    private Integer code = ErrorCode.SUCCESS.getCode();  // TODO: 让请求成功时返回成功的 code 和 messsage（现在这个默认值不 work）
+  private Integer code = ErrorCode.SUCCESS.getCode();  // TODO: 让请求成功时返回成功的 code 和 messsage（现在这个默认值不 work）
 
-    private String message = ErrorCode.SUCCESS.getDesc();
+  private String message = ErrorCode.SUCCESS.getDesc();
 
-    public void setError(ErrorCode errorCode) {
-        this.setCode(errorCode.getCode());
-        this.setMessage(errorCode.getDesc());
-    }
+  public void setError(ErrorCode errorCode) {
+    this.setCode(errorCode.getCode());
+    this.setMessage(errorCode.getDesc());
+  }
 
-    public static Response from(ErrorCode errorCode) {
-        Response response = new Response();
-        response.setError(errorCode);
-        return response;
-    }
+  public static Response from(ErrorCode errorCode) {
+    Response response = new Response();
+    response.setError(errorCode);
+    return response;
+  }
 }

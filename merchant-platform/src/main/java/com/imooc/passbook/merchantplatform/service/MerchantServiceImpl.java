@@ -24,56 +24,56 @@ import java.util.Optional;
 @Service
 public class MerchantServiceImpl implements IMerchantService {
 
-    private final MerchantDao merchantDao;
+  private final MerchantDao merchantDao;
 
-    private final KafkaTemplate<String, String> kafkaTemplate;  // 注入 Kafka client
+  private final KafkaTemplate<String, String> kafkaTemplate;  // 注入 Kafka client
 
-    @Autowired
-    public MerchantServiceImpl(MerchantDao merchantDao, KafkaTemplate<String, String> kafkaTemplate) {
-        this.merchantDao = merchantDao;
-        this.kafkaTemplate = kafkaTemplate;
-    }
+  @Autowired
+  public MerchantServiceImpl(MerchantDao merchantDao, KafkaTemplate<String, String> kafkaTemplate) {
+    this.merchantDao = merchantDao;
+    this.kafkaTemplate = kafkaTemplate;
+  }
 
-    @Override
-    @Transactional   // 事务方法
-    public Response createMerchant(CreateMerchantRequest request) {
-        ErrorCode errorCode = request.validate(merchantDao);  // 检查请求是否有效
-        if (errorCode != ErrorCode.SUCCESS)
-            return Response.from(errorCode);
+  @Override
+  @Transactional   // 事务方法
+  public Response createMerchant(CreateMerchantRequest request) {
+    ErrorCode errorCode = request.validate(merchantDao);  // 检查请求是否有效
+    if (errorCode != ErrorCode.SUCCESS)
+      return Response.from(errorCode);
 
-        Merchant merchant = Merchant.from(request);
-        merchantDao.save(merchant);
-        return new Response();  // TODO: 给响应添加成功的 message
-    }
+    Merchant merchant = Merchant.from(request);
+    merchantDao.save(merchant);
+    return new Response();  // TODO: 给响应添加成功的 message
+  }
 
-    @Override
-    public Response getMerchantById(Integer id) {
-        Optional<Merchant> merchant = merchantDao.findById(id);
+  @Override
+  public Response getMerchantById(Integer id) {
+    Optional<Merchant> merchant = merchantDao.findById(id);
 
-        if (!merchant.isPresent())
-            return Response.from(ErrorCode.MERCHANT_NOT_EXIST);
+    if (!merchant.isPresent())
+      return Response.from(ErrorCode.MERCHANT_NOT_EXIST);
 
-        Response response = new Response();
-        response.setData(merchant);
-        return response;
-    }
+    Response response = new Response();
+    response.setData(merchant);
+    return response;
+  }
 
-    @Override
-    public Response issuePassTemplate(PassTemplateRequest request) {
-        ErrorCode errorCode = request.validate(merchantDao);  // 先验证优惠券的有效性
+  @Override
+  public Response issuePassTemplate(PassTemplateRequest request) {
+    ErrorCode errorCode = request.validate(merchantDao);  // 先验证优惠券的有效性
 
-        if (errorCode != ErrorCode.SUCCESS)
-            return Response.from(errorCode);
+    if (errorCode != ErrorCode.SUCCESS)
+      return Response.from(errorCode);
 
-        String passTemplateStr = JSON.toJSONString(request);
-        kafkaTemplate.send(            // 通过 Kafka client 向 broker 发送消息（进去看一下 send 源码，还可指定 partition）
-            Constants.TEMPLATE_TOPIC,  // Kafka topic
-            Constants.TEMPLATE_TOPIC,  // message key
-            passTemplateStr);          // message value
+    String passTemplateStr = JSON.toJSONString(request);
+    kafkaTemplate.send(            // 通过 Kafka client 向 broker 发送消息（进去看一下 send 源码，还可指定 partition）
+        Constants.TEMPLATE_TOPIC,  // Kafka topic
+        Constants.TEMPLATE_TOPIC,  // message key
+        passTemplateStr);          // message value
 
-        log.info("📮 [issuePassTemplate] issued a passTemplate: {}", request);
+    log.info("📮 [issuePassTemplate] issued a passTemplate: {}", request);
 
-        return new Response();
-    }
+    return new Response();
+  }
 
 }
