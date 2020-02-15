@@ -17,9 +17,9 @@ public class Response {
 
     private Object data;
 
-    private Integer code = 0;
+    private Integer code = ErrorCode.SUCCESS.getCode();  // TODO: 让请求成功时返回成功的 code 和 messsage（现在这个默认值不 work）
 
-    private String message = "";
+    private String message = ErrorCode.SUCCESS.getDesc();
 
     public void setError(ErrorCode errorCode) {
         this.setCode(errorCode.getCode());

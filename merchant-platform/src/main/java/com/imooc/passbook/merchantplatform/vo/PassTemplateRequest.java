@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
-import java.util.Date;
+import java.time.LocalDateTime;
 
 /**
  * 将优惠券信息进行封装成 Value Object，用于在业务和服务之间传递
@@ -43,11 +43,14 @@ public class PassTemplateRequest {
     private Integer background;
 
     @NotNull(message = "优惠券开始时间为空")
-    private Date startTime;
+    private LocalDateTime startTime;
 
     @NotNull(message = "优惠券结束时间为空")
-    private Date endTime;
+    private LocalDateTime endTime;
 
+    public static void main(String[] args) {
+        System.out.println(LocalDateTime.now());
+    }
     public ErrorCode validate(MerchantDao merchantDao) {
         return merchantDao.findById(id).isPresent()  // 通过 MerchantDao 去 DB 中对 id 进行有效性校验
             ? ErrorCode.SUCCESS
