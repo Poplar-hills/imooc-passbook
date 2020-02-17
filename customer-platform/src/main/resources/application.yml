@@ -27,4 +27,5 @@ logging:
   level:
     root: debug
   file:
+    path: log
     name: imooc-customer.log

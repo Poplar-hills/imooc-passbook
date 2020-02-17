@@ -19,4 +19,5 @@ logging:
   level:
     root: debug
   file:
+    path: log
     name: imooc-merchants.log
