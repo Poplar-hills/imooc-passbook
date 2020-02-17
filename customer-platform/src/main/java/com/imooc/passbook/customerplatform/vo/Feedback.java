@@ -2,6 +2,7 @@ package com.imooc.passbook.customerplatform.vo;
 
 import com.imooc.passbook.customerplatform.constants.FeedbackType;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -15,6 +16,7 @@ import javax.validation.constraints.NotBlank;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
 public class Feedback {
 
     private Long userId;  // 用户 id

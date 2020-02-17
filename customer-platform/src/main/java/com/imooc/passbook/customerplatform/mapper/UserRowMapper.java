@@ -8,6 +8,7 @@ import org.apache.hadoop.hbase.util.Bytes;
 
 /**
  * Mapper for mapping HBase User row to User object
+ * - User 的 ORM 映射，即将 HBase User 表中的 Row 映射成 Java POJO。
  */
 
 public class UserRowMapper implements RowMapper<User> {
@@ -29,6 +30,14 @@ public class UserRowMapper implements RowMapper<User> {
             Bytes.toInt(result.getValue(FAMILY_B, AGE)),
             Bytes.toString(result.getValue(FAMILY_B, SEX))
         );
-        return null;
+        User.OtherInfo otherInfo = new User.OtherInfo(
+            Bytes.toString(result.getValue(FAMILY_O, PHONE)),
+            Bytes.toString(result.getValue(FAMILY_O, ADDRESS))
+        );
+        return User.builder()
+            .id(Bytes.toLong(result.getRow()))  // 使用 User 表的 Row key 作为 User 对象的 id
+            .baseInfo(baseInfo)
+            .otherInfo(otherInfo)
+            .build();
     }
 }
