@@ -94,10 +94,10 @@ public class HBaseTable {
         public static final String TOKEN = "token";
 
         // 领取日期
-        public static final String ASSIGNED_DATE = "assigned_date";
+        public static final String COLLECT_DATE = "assigned_date";
 
         // 消费日期
-        public static final String CON_DATE = "con_date";
+        public static final String CONSUME_DATE = "con_date";
     }
 
     // HBase 中的 Feedback 表的结构声明

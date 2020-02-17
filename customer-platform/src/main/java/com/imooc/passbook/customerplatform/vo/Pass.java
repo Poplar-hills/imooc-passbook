@@ -23,7 +23,7 @@ public class Pass {
 
     private String templateId;  // PassTemplate 在 HBase 中的 RowKey（相当于外键）
 
-    private String token;  // 优惠券 token（若优惠券没有，则填充-1）
+    private String token;  // 优惠券 token（若优惠券没有，则填充"-1"）
 
     private LocalDateTime collectDate;  // 领取日期
 
