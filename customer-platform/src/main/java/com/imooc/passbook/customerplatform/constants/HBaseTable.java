@@ -69,10 +69,10 @@ public class HBaseTable {
         public static final String LIMIT = "limit";
 
         // 优惠券开始时间
-        public static final String START = "start";
+        public static final String START_TIME = "start";
 
         // 优惠券结束时间
-        public static final String END = "end";
+        public static final String END_TIME = "end";
     }
 
     // HBase 中的 Pass 表的结构声明

@@ -1,4 +1,4 @@
-package com.imooc.passbook.customerplatform.mapper;
+package com.imooc.passbook.customerplatform.orm;
 
 import com.imooc.passbook.customerplatform.constants.HBaseTable;
 import com.imooc.passbook.customerplatform.vo.User;
@@ -7,8 +7,7 @@ import org.apache.hadoop.hbase.client.Result;
 import org.apache.hadoop.hbase.util.Bytes;
 
 /**
- * Mapper for mapping HBase User row to User object
- * - User 的 ORM 映射，即将 HBase User 表中的 Row 映射成 Java POJO。
+ * ORM Mapper for mapping HBase User row to Java User object
  */
 
 public class UserRowMapper implements RowMapper<User> {
