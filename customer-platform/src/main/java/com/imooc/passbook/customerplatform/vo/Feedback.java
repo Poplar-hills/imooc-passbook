@@ -25,5 +25,5 @@ public class Feedback {
 
     private String templateId;  // PassTemplate RowKey, 如果是 app 类型的评论, 则没有
 
-    private String comment;  // 评论内容
+    private String content;  // 评论内容
 }

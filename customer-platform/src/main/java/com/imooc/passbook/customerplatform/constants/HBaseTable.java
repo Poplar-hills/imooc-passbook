@@ -119,6 +119,6 @@ public class HBaseTable {
         public static final String TEMPLATE_ID = "template_id";
 
         // 评论内容
-        public static final String COMMENT = "comment";
+        public static final String CONTENT = "comment";
     }
 }
