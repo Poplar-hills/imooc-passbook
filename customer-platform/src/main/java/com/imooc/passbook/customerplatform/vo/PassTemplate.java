@@ -5,6 +5,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
 
 /**
@@ -17,21 +19,30 @@ import java.time.LocalDateTime;
 @Builder
 public class PassTemplate {
 
-    private Integer id;  // 商户 id
+    @NotNull(message = "商户 id 为空")
+    private Integer id;
 
-    private String title;  // 标题
+    @NotBlank(message = "优惠券标题为空")
+    private String title;
 
-    private String summary;  // 摘要
+    @NotBlank(message = "优惠券摘要为空")
+    private String summary;
 
-    private String desc;  // 详细信息
+    @NotBlank(message = "优惠券详细信息为空")
+    private String desc;
 
-    private Long limit;  // 最大发放个数
+    @NotNull(message = "优惠券最大发放个数为空")
+    private Long limit;
 
-    private Boolean hasToken;  // 优惠券是否有 Token, 用于商户核销
+    @NotNull(message = "优惠券是否有 token 需要商户核销为空")
+    private Boolean hasToken;
 
-    private Integer background;  // 背景色
+    @NotNull(message = "优惠券背景色为空")
+    private Integer background;
 
-    private LocalDateTime startTime;  // 优惠券开始时间
+    @NotNull(message = "优惠券开始时间为空")
+    private LocalDateTime startTime;
 
-    private LocalDateTime endTime;  // 优惠券结束时间
+    @NotNull(message = "优惠券结束时间为空")
+    private LocalDateTime endTime;
 }

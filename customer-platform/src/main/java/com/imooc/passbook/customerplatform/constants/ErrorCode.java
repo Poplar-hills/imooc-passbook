@@ -8,7 +8,8 @@ import lombok.Getter;
 public enum ErrorCode {
 
     SUCCESS(0, "SUCCESS"),
-    UNKNOWN_ERROR(1, "未知错误");
+    UNKNOWN_ERROR(1, "未知错误"),
+    METHOD_ARGUMENT_NOT_VALID(2, "请求参数错误");
 
     private Integer code;
 

@@ -6,14 +6,14 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 /**
- * 统一的错误信息对象
+ * 统一的 Response 对象
  */
 
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class ErrorResponse<T> {
+public class Response<T> {
 
     public static final Integer ERROR = -1;
 

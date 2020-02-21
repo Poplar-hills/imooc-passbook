@@ -50,22 +50,3 @@ public class PassTemplateConsumer {
         log.info("[Kafka consumer] saved pass template to HBase: {}", passTemplate);
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
