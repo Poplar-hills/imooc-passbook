@@ -1,4 +1,4 @@
-package com.imooc.passbook.merchantplatform.security;
+package com.imooc.passbook.merchantplatform.exception;
 
 import com.imooc.passbook.merchantplatform.constants.ErrorCode;
 import com.imooc.passbook.merchantplatform.vo.Response;
@@ -10,9 +10,15 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
+/**
+ * 全局异常处理
+ * - 需要 @ControllerAdvice 注解。
+ * - 不同于 customer-platform 中的 GlobalExceptionHandler，该类通过 ErrorCode 构造 Response 对象，然后放在 ResponseEntity 中返回。
+ */
+
 @Slf4j
 @ControllerAdvice
-public class RestExceptionHandler {  // 这里不能继承 ResponseEntityExceptionHandler，否则保持
+public class GlobalExceptionHandler {  // 这里不能继承 ResponseEntityExceptionHandler，否则报错
 
   // 拦截 @Valid 抛出的错误
   @ExceptionHandler(MethodArgumentNotValidException.class)
