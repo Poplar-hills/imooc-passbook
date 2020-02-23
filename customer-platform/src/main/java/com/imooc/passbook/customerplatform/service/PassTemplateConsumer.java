@@ -46,7 +46,7 @@ public class PassTemplateConsumer {
             return;
         }
 
-        passTemplateService.savePassTemplateToHbase(passTemplate);
+        passTemplateService.createPassTemplate(passTemplate);
         log.info("[Kafka consumer] saved pass template to HBase: {}", passTemplate);
     }
 }

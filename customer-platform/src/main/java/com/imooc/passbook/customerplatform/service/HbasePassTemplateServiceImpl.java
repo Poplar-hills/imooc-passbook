@@ -17,7 +17,7 @@ import javax.validation.Valid;
 import java.io.IOException;
 
 /**
- * 用于实现 HBase 读写 Pass Template 的 service
+ * 用于在 HBase 中读写 Pass Template 的 service
  */
 
 @Slf4j
@@ -31,7 +31,7 @@ public class HbasePassTemplateServiceImpl implements IHbasePassTemplateService {
     }
 
     @Override
-    public boolean savePassTemplateToHbase(@Valid PassTemplate passTemplate) {
+    public boolean createPassTemplate(@Valid PassTemplate passTemplate) {
         String rowKey = RowKeyGenerator.genForPassTemplate(passTemplate);
         String title = passTemplate.getTitle();
 
@@ -77,64 +77,30 @@ public class HbasePassTemplateServiceImpl implements IHbasePassTemplateService {
     }
 
     private void addColumnsForFamilyB(PassTemplate passTemplate, Put put) {
-        String family = HBaseTable.PassTemplateTable.FAMILY_B;
+        byte[] family = HBaseTable.PassTemplateTable.FAMILY_B.getBytes();
+        byte[] id = HBaseTable.PassTemplateTable.ID.getBytes();
+        byte[] title = HBaseTable.PassTemplateTable.TITLE.getBytes();
+        byte[] summary = HBaseTable.PassTemplateTable.SUMMARY.getBytes();
+        byte[] desc = HBaseTable.PassTemplateTable.DESC.getBytes();
+        byte[] hasToken = HBaseTable.PassTemplateTable.HAS_TOKEN.getBytes();
+        byte[] background = HBaseTable.PassTemplateTable.BACKGROUND.getBytes();
 
-        put.addColumn(
-            Bytes.toBytes(family),
-            Bytes.toBytes(HBaseTable.PassTemplateTable.ID),
-            Bytes.toBytes(passTemplate.getId())
-        );
-
-        put.addColumn(
-            Bytes.toBytes(family),
-            Bytes.toBytes(HBaseTable.PassTemplateTable.TITLE),
-            Bytes.toBytes(passTemplate.getTitle())
-        );
-
-        put.addColumn(
-            Bytes.toBytes(family),
-            Bytes.toBytes(HBaseTable.PassTemplateTable.SUMMARY),
-            Bytes.toBytes(passTemplate.getSummary())
-        );
-
-        put.addColumn(
-            Bytes.toBytes(family),
-            Bytes.toBytes(HBaseTable.PassTemplateTable.DESC),
-            Bytes.toBytes(passTemplate.getDesc())
-        );
-
-        put.addColumn(
-            Bytes.toBytes(family),
-            Bytes.toBytes(HBaseTable.PassTemplateTable.HAS_TOKEN),
-            Bytes.toBytes(passTemplate.getHasToken())
-        );
-
-        put.addColumn(
-            Bytes.toBytes(family),
-            Bytes.toBytes(HBaseTable.PassTemplateTable.BACKGROUND),
-            Bytes.toBytes(passTemplate.getBackground())
-        );
+        put.addColumn(family, id, Bytes.toBytes(passTemplate.getId()));
+        put.addColumn(family, title, Bytes.toBytes(passTemplate.getTitle()));
+        put.addColumn(family, summary, Bytes.toBytes(passTemplate.getSummary()));
+        put.addColumn(family, desc, Bytes.toBytes(passTemplate.getDesc()));
+        put.addColumn(family, hasToken, Bytes.toBytes(passTemplate.getHasToken()));
+        put.addColumn(family, background, Bytes.toBytes(passTemplate.getBackground()));
     }
 
     private void addColumnsForFamilyC(PassTemplate passTemplate, Put put) {
-        String family = HBaseTable.PassTemplateTable.FAMILY_C;
+        byte[] family = HBaseTable.PassTemplateTable.FAMILY_C.getBytes();
+        byte[] limit = HBaseTable.PassTemplateTable.LIMIT.getBytes();
+        byte[] startTime = HBaseTable.PassTemplateTable.START_TIME.getBytes();
+        byte[] endTime = HBaseTable.PassTemplateTable.END_TIME.getBytes();
 
-        put.addColumn(
-            Bytes.toBytes(family),
-            Bytes.toBytes(HBaseTable.PassTemplateTable.LIMIT),
-            Bytes.toBytes(passTemplate.getLimit())
-        );
-
-        put.addColumn(
-            Bytes.toBytes(family),
-            Bytes.toBytes(HBaseTable.PassTemplateTable.START_TIME),
-            Bytes.toBytes(passTemplate.getStartTime().toString())
-        );
-
-        put.addColumn(
-            Bytes.toBytes(family),
-            Bytes.toBytes(HBaseTable.PassTemplateTable.END_TIME),
-            Bytes.toBytes(passTemplate.getEndTime().toString())
-        );
+        put.addColumn(family, limit, Bytes.toBytes(passTemplate.getLimit()));
+        put.addColumn(family, startTime, Bytes.toBytes(passTemplate.getStartTime().toString()));
+        put.addColumn(family, endTime, Bytes.toBytes(passTemplate.getEndTime().toString()));
     }
 }
