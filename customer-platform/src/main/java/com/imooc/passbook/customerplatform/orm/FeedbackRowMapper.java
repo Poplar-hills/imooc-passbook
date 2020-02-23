@@ -1,6 +1,5 @@
 package com.imooc.passbook.customerplatform.orm;
 
-import com.google.common.base.Enums;
 import com.imooc.passbook.customerplatform.constants.FeedbackType;
 import com.imooc.passbook.customerplatform.constants.HBaseTable;
 import com.imooc.passbook.customerplatform.vo.Feedback;
@@ -14,11 +13,11 @@ import org.apache.hadoop.hbase.util.Bytes;
 
 public class FeedbackRowMapper implements RowMapper<Feedback> {
 
-    private static byte[] FAMILY_I = HBaseTable.Feedback.FAMILY_I.getBytes();
-    private static byte[] USER_ID = HBaseTable.Feedback.USER_ID.getBytes();
-    private static byte[] TYPE = HBaseTable.Feedback.TYPE.getBytes();
-    private static byte[] TEMPLATE_ID = HBaseTable.Feedback.TEMPLATE_ID.getBytes();
-    private static byte[] CONTENT = HBaseTable.Feedback.CONTENT.getBytes();
+    private static byte[] FAMILY_I = HBaseTable.FeedbackTable.FAMILY_I.getBytes();
+    private static byte[] USER_ID = HBaseTable.FeedbackTable.USER_ID.getBytes();
+    private static byte[] TYPE = HBaseTable.FeedbackTable.TYPE.getBytes();
+    private static byte[] TEMPLATE_ID = HBaseTable.FeedbackTable.TEMPLATE_ID.getBytes();
+    private static byte[] CONTENT = HBaseTable.FeedbackTable.CONTENT.getBytes();
 
     @Override
     public Feedback mapRow(Result result, int rowNum) throws Exception {

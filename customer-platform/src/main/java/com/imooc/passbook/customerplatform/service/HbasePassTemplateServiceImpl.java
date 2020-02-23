@@ -17,7 +17,7 @@ import javax.validation.Valid;
 import java.io.IOException;
 
 /**
- *
+ * 用于实现 HBase 读写 Pass Template 的 service
  */
 
 @Slf4j
@@ -36,7 +36,7 @@ public class HbasePassTemplateServiceImpl implements IHbasePassTemplateService {
         String title = passTemplate.getTitle();
 
         try {
-            if (!isRowKeyValid(rowKey)) {  // 验证 row key 在 HBase 中是唯一的
+            if (!isRowKeyValid(rowKey)) {  // 验证 row key 在 PassTemplateTable 中是唯一的
                 log.warn("Row key {} already exist", rowKey);
                 return false;
             }
