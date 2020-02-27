@@ -40,8 +40,8 @@ public class RowKeyGenerator {
     public static String genForFeedback(Feedback feedback) {
         String userIdStr = String.valueOf(feedback.getUserId());
         String reversedUserIdStr = new StringBuilder(userIdStr).reverse().toString();
-        long postfix = Long.MAX_VALUE - System.currentTimeMillis();
-        String rowKey = reversedUserIdStr + postfix;
+        long suffix = Long.MAX_VALUE - System.currentTimeMillis();
+        String rowKey = reversedUserIdStr + suffix;
         log.info("genForFeedback: {}", rowKey);
         return rowKey;
     }

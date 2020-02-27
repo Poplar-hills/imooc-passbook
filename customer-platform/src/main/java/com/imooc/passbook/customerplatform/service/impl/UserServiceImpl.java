@@ -1,7 +1,8 @@
-package com.imooc.passbook.customerplatform.service;
+package com.imooc.passbook.customerplatform.service.impl;
 
 import com.imooc.passbook.customerplatform.constants.Constants;
 import com.imooc.passbook.customerplatform.constants.HBaseTable;
+import com.imooc.passbook.customerplatform.service.IUserService;
 import com.imooc.passbook.customerplatform.vo.User;
 import com.spring4all.spring.boot.starter.hbase.api.HbaseTemplate;
 import lombok.AllArgsConstructor;
@@ -36,11 +37,8 @@ public class UserServiceImpl implements IUserService {
         byte[] PHONE = HBaseTable.UserTable.PHONE.getBytes();
         byte[] ADDRESS = HBaseTable.UserTable.ADDRESS.getBytes();
 
-        Long currUserCount = redisTemplate.opsForValue()      // 从 Redis 中取出当前系统的用户数（opsForValue 返回所有 String 操作）
-            .increment(Constants.USER_COUNT_REDIS_KEY, 1);  // 在已有用户总数上 +1 就是创建这个用户之后的用户总数
-        Long userId = genUserId(currUserCount);
-
-        Put put = new Put(Bytes.toBytes(userId));             // 开始组装 HBase put query
+        Long userId = genUserId();
+        Put put = new Put(Bytes.toBytes(userId));  // 开始组装 HBase put query
         put.addColumn(FAMILY_B, NAME, Bytes.toBytes(user.getBaseInfo().getName()))
             .addColumn(FAMILY_B, AGE, Bytes.toBytes(user.getBaseInfo().getAge()))
             .addColumn(FAMILY_B, SEX, Bytes.toBytes(user.getBaseInfo().getSex()))
@@ -53,9 +51,12 @@ public class UserServiceImpl implements IUserService {
         return user;
     }
 
-    private Long genUserId(Long prefix) {
+    private Long genUserId() {
+        Long currUserCount = redisTemplate.opsForValue()      // 从 Redis 中取出当前系统的用户数（opsForValue 返回所有 String 操作）
+            .increment(Constants.USER_COUNT_REDIS_KEY, 1);  // 在已有用户总数上 +1 就是创建这个用户之后的用户总数
         String suffix = RandomStringUtils.randomNumeric(5);
-        return Long.valueOf(prefix + suffix);
+
+        return Long.valueOf(currUserCount + suffix);
     }
 }
 

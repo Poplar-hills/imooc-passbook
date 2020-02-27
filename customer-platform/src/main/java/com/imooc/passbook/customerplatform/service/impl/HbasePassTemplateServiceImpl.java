@@ -1,6 +1,7 @@
-package com.imooc.passbook.customerplatform.service;
+package com.imooc.passbook.customerplatform.service.impl;
 
 import com.imooc.passbook.customerplatform.constants.HBaseTable;
+import com.imooc.passbook.customerplatform.service.IHbasePassTemplateService;
 import com.imooc.passbook.customerplatform.utils.RowKeyGenerator;
 import com.imooc.passbook.customerplatform.vo.PassTemplate;
 import com.spring4all.spring.boot.starter.hbase.api.HbaseTemplate;
