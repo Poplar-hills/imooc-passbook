@@ -4,6 +4,7 @@ import com.imooc.passbook.customerplatform.constants.HBaseTable;
 import com.imooc.passbook.customerplatform.utils.RowKeyGenerator;
 import com.imooc.passbook.customerplatform.vo.PassTemplate;
 import com.spring4all.spring.boot.starter.hbase.api.HbaseTemplate;
+import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.hadoop.hbase.TableName;
 import org.apache.hadoop.hbase.client.Connection;
@@ -22,13 +23,10 @@ import java.io.IOException;
 
 @Slf4j
 @Service
+@AllArgsConstructor
 public class HbasePassTemplateServiceImpl implements IHbasePassTemplateService {
 
     private final HbaseTemplate hbaseTemplate;  // HBase client
-
-    public HbasePassTemplateServiceImpl(HbaseTemplate hbaseTemplate) {
-        this.hbaseTemplate = hbaseTemplate;
-    }
 
     @Override
     public boolean createPassTemplate(@Valid PassTemplate passTemplate) {

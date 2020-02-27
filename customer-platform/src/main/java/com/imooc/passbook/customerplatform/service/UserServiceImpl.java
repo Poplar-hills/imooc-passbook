@@ -4,6 +4,7 @@ import com.imooc.passbook.customerplatform.constants.Constants;
 import com.imooc.passbook.customerplatform.constants.HBaseTable;
 import com.imooc.passbook.customerplatform.vo.User;
 import com.spring4all.spring.boot.starter.hbase.api.HbaseTemplate;
+import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.apache.hadoop.hbase.client.Put;
@@ -17,16 +18,12 @@ import org.springframework.stereotype.Service;
 
 @Slf4j
 @Service
+@AllArgsConstructor
 public class UserServiceImpl implements IUserService {
 
     private final HbaseTemplate hbaseTemplate;  // HBase 客户端
 
     private final StringRedisTemplate redisTemplate;  // Redis 客户端 TODO: vs. Jedis?????
-
-    public UserServiceImpl(HbaseTemplate hbaseTemplate, StringRedisTemplate redisTemplate) {
-        this.hbaseTemplate = hbaseTemplate;
-        this.redisTemplate = redisTemplate;
-    }
 
     @Override
     public User createUser(User user) throws Exception {

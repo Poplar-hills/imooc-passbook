@@ -3,6 +3,7 @@ package com.imooc.passbook.customerplatform.service;
 import com.alibaba.fastjson.JSON;
 import com.imooc.passbook.customerplatform.constants.Constants;
 import com.imooc.passbook.customerplatform.vo.PassTemplate;
+import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.kafka.support.KafkaHeaders;
@@ -16,13 +17,10 @@ import org.springframework.stereotype.Service;
 
 @Slf4j
 @Service
+@AllArgsConstructor
 public class PassTemplateConsumer {
 
     private final IHbasePassTemplateService passTemplateService;
-
-    public PassTemplateConsumer(IHbasePassTemplateService passTemplateService) {
-        this.passTemplateService = passTemplateService;
-    }
 
     /**
      * 接收 Kafka 消息的回调方法
