@@ -99,9 +99,9 @@
 		</dependency>
 
 		<dependency>
-			<groupId>commons-lang</groupId>
-			<artifactId>commons-lang</artifactId>
-			<version>3.0</version>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+			<version>3.9</version>
 		</dependency>
 
 		<dependency>
