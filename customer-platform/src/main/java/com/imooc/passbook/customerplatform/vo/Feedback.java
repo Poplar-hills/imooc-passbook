@@ -6,8 +6,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 /**
  * 用户评论对象定义
@@ -19,11 +19,14 @@ import javax.validation.constraints.NotBlank;
 @Builder
 public class Feedback {
 
-    private Long userId;  // 用户 id
+    @NotNull(message = "用户 id 为空")
+    private Long userId;
 
-    private FeedbackType type;  // 评论类型
+    @NotNull(message = "评论类型为空")
+    private FeedbackType type;
 
     private String templateId;  // PassTemplate RowKey, 如果是 app 类型的评论, 则没有
 
-    private String content;  // 评论内容
+    @NotBlank(message = "评论内容为空")
+    private String content;
 }
