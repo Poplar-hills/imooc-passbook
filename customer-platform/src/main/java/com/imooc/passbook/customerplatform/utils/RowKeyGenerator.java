@@ -55,11 +55,13 @@ public class RowKeyGenerator {
      * - 之所以要这么生成，理由与上面的 feedback row key 一样：
      *   1. reversed(userId) 是为了让数据更均匀的存储在集群的不同几点上；
      *   2. inverse(timestamp) 是为了让 HBase 在 scan 查询用户的所有 pass 时能直接得到按时间倒序排列的 pass 列表。
+     *   3. PassTemplate RowKey 是为了将 passTemplate 的信息保存在 pass row key 中，方便以后查询（例如使用 string 包含型的过滤器
+     *      来 scan 某个 passTemplate row key，来查看用户是否已领取过该优惠券）。
      */
     public static String genForPass(CollectPassTemplateRequest request) {
         String rowKey = new StringBuilder(String.valueOf(request.getUserId())).reverse().toString()
             + (Long.MAX_VALUE - System.currentTimeMillis())
-            + genForPassTemplate(request.getPassTemplate());
+            + genForPassTemplate(request.getPassTemplate());  // passTemplate row key 的生成是幂等的过程
         log.info("genForPass: {}", rowKey);
         return rowKey;
     }

@@ -6,7 +6,7 @@ import com.imooc.passbook.customerplatform.vo.PassInfo;
 
 import java.util.List;
 
-public interface IPassTemplateAndUserService {
+public interface IUserPassService {
 
     // 获取用户已领取的优惠券（"我的优惠券"中的功能）
     List<PassInfo> getCollectedPassInfos(Long userId) throws Exception;
