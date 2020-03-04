@@ -1,7 +1,7 @@
 package com.imooc.passbook.customerplatform.service.impl;
 
 import com.imooc.passbook.customerplatform.constants.HBaseTable;
-import com.imooc.passbook.customerplatform.service.IHbasePassTemplateService;
+import com.imooc.passbook.customerplatform.service.IPassTemplateService;
 import com.imooc.passbook.customerplatform.utils.RowKeyGenerator;
 import com.imooc.passbook.customerplatform.vo.PassTemplate;
 import com.spring4all.spring.boot.starter.hbase.api.HbaseTemplate;
@@ -25,7 +25,7 @@ import java.io.IOException;
 @Slf4j
 @Service
 @AllArgsConstructor
-public class HbasePassTemplateServiceImpl implements IHbasePassTemplateService {
+public class PassTemplateServiceImpl implements IPassTemplateService {
 
     private final HbaseTemplate hbaseTemplate;  // HBase client
 

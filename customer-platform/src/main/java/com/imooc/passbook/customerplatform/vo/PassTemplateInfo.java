@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class PassTemplateInfo {
 
-  private PassTemplate passTemplate;  // 优惠券模板
+    private PassTemplate passTemplate;  // 优惠券模板
 
-  private Merchant merchant;  // 优惠券对应的商户
+    private Merchant merchant;  // 优惠券对应的商户
 }

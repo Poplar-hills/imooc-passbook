@@ -20,7 +20,7 @@ import org.springframework.stereotype.Service;
 @AllArgsConstructor
 public class PassTemplateConsumer {
 
-    private final IHbasePassTemplateService passTemplateService;
+    private final IPassTemplateService passTemplateService;
 
     /**
      * 接收 Kafka 消息的回调方法

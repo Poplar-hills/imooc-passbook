@@ -16,7 +16,7 @@ import java.util.List;
 @AllArgsConstructor
 public class CollectablePassTemplates {
 
-  private Long userId;
+    private Long userId;
 
-  private List<PassTemplateInfo> passTemplateInfos;
+    private List<PassTemplateInfo> passTemplateInfos;
 }
