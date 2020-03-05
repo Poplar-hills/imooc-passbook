@@ -1,8 +1,10 @@
 package com.imooc.passbook.customerplatform.service.impl;
 
 import com.imooc.passbook.customerplatform.constants.HBaseTable;
+import com.imooc.passbook.customerplatform.constants.PassStatus;
 import com.imooc.passbook.customerplatform.dao.MerchantDao;
 import com.imooc.passbook.customerplatform.entity.Merchant;
+import com.imooc.passbook.customerplatform.orm.PassRowMapper;
 import com.imooc.passbook.customerplatform.service.IUserPassService;
 import com.imooc.passbook.customerplatform.vo.CollectablePassTemplates;
 import com.imooc.passbook.customerplatform.vo.Pass;
@@ -14,16 +16,14 @@ import lombok.extern.slf4j.Slf4j;
 import org.apache.hadoop.hbase.TableName;
 import org.apache.hadoop.hbase.client.Get;
 import org.apache.hadoop.hbase.client.Result;
+import org.apache.hadoop.hbase.client.Scan;
+import org.apache.hadoop.hbase.filter.*;
 import org.apache.hadoop.hbase.util.Bytes;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.stream.Collector;
+import java.util.*;
 import java.util.stream.Collectors;
 
 @Slf4j
@@ -34,29 +34,67 @@ public class UserPassServiceImpl implements IUserPassService {
     private final HbaseTemplate hbaseTemplate;
     private final MerchantDao merchantsDao;
 
+    // 获取用户已领取但未使用的优惠券
     @Override
-    public List<PassInfo> getCollectedPassInfos(Long userId) throws Exception {
-        return null;
+    public List<PassInfo> getUnusedPassInfos(Long userId) throws Exception {
+        return getPassInfosByStatus(userId, PassStatus.UNUSED);
     }
 
+    // 获取用户已领取且已使用的优惠券
     @Override
-    public List<PassInfo> getConsumedPasseInfos(Long userId) throws Exception {
-        return null;
+    public List<PassInfo> getUsedPasseInfos(Long userId) throws Exception {
+        return getPassInfosByStatus(userId, PassStatus.USED);
     }
 
+    // 获取用户所有已领取的优惠券
     @Override
     public List<PassInfo> getAllUserPasseInfos(Long userId) throws Exception {
-        return null;
+        return getPassInfosByStatus(userId, PassStatus.ALL);
     }
 
+    // 获取用户可领取的优惠券
     @Override
     public CollectablePassTemplates getCollectablePassTemplates(Long userId) throws Exception {
         return null;
     }
 
+    // 消费优惠券
     @Override
     public void consumePass(Pass pass) {
 
+    }
+
+    private List<PassInfo> getPassInfosByStatus(Long userId, PassStatus status) throws Exception {
+        Scan scan = buildScan(userId, status);
+        List<Pass> passes = hbaseTemplate.find(HBaseTable.PassTable.TABLE_NAME, scan, new PassRowMapper());
+        Map<String, PassTemplate> passTemplateMap = buildPassTemplateMap(passes);
+        Map<Integer, Merchant> merchantsMap = buildMerchantMap(new ArrayList<>(passTemplateMap.values()));
+        return buildPassInfoList(passes, passTemplateMap, merchantsMap);
+    }
+
+    private Scan buildScan(Long userId, PassStatus status) {
+        String reversedUserId = new StringBuilder(String.valueOf(userId)).reverse().toString();
+        byte[] rowPrefix = Bytes.toBytes(reversedUserId);  // 根据 userId 构造行键前缀
+
+        List<Filter> filters = new ArrayList<>();
+        filters.add(new PrefixFilter(rowPrefix));  // 1. 行键前缀过滤器，找到特定用户的优惠券
+
+        if (status != PassStatus.ALL) {            // 2. 若要查找的是已使用/未使用的优惠券，就再加一个基于列单元值的过滤器
+            CompareFilter.CompareOp compareOp = (status == PassStatus.UNUSED)  // 根据要查找的状态选择比较器
+                ? CompareFilter.CompareOp.EQUAL
+                : CompareFilter.CompareOp.NOT_EQUAL;
+
+            filters.add(new SingleColumnValueFilter(
+                HBaseTable.PassTable.FAMILY_I.getBytes(),
+                HBaseTable.PassTable.CONSUME_DATE.getBytes(),
+                compareOp,
+                Bytes.toBytes("-1"))            // 根据 consume_date 字段是否等于 -1 来判断优惠券状态，从而过滤优惠券
+            );
+        }
+
+        Scan scan = new Scan();
+        scan.setFilter(new FilterList(filters));
+        return scan;
     }
 
     // 通过 Pass 对象构造 PassTemplate Map
@@ -110,5 +148,34 @@ public class UserPassServiceImpl implements IUserPassService {
 
         return merchantsDao.findByIdIn(merchantsIds).stream()
             .collect(Collectors.toMap(Merchant::getId, merchant -> merchant));
+    }
+
+    // 生成 PassInfo 列表（包含 pass, passTemplate, merchant 信息）
+    private List<PassInfo> buildPassInfoList(List<Pass> passes,
+                                             Map<String, PassTemplate> passTemplateMap,
+                                             Map<Integer, Merchant> merchantsMap) {
+        List<PassInfo> passInfos = new ArrayList<>();
+
+        for (Pass pass : passes) {
+            PassTemplate passTemplate = passTemplateMap  // 通过 pass 中的 template id 在 passTemplateMap 中找到 passTemplate 对象
+                .getOrDefault(pass.getTemplateId(), null);
+
+            if (null == passTemplate) {
+                log.error("PassTemplate Null : {}", pass.getTemplateId());
+                continue;
+            }
+
+            Merchant merchants = merchantsMap  // 通过 passTemplate 中的 id 在 merchantMap 中找到 merchant 对象
+                .getOrDefault(passTemplate.getId(), null);
+
+            if (null == merchants) {
+                log.error("Merchants Null : {}", passTemplate.getId());
+                continue;
+            }
+
+            passInfos.add(new PassInfo(pass, passTemplate, merchants));  // 三个信息最终合成 passInfo 对象
+        }
+
+        return passInfos;
     }
 }
