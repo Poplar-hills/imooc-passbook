@@ -14,7 +14,7 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class CollectablePassTemplates {
+public class AvailablePassTemplates {
 
     private Long userId;
 

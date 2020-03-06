@@ -8,7 +8,6 @@ import com.imooc.passbook.customerplatform.entity.Merchant;
 import com.imooc.passbook.customerplatform.exception.BusinessException;
 import com.imooc.passbook.customerplatform.orm.PassRowMapper;
 import com.imooc.passbook.customerplatform.service.IUserPassService;
-import com.imooc.passbook.customerplatform.vo.CollectablePassTemplates;
 import com.imooc.passbook.customerplatform.vo.Pass;
 import com.imooc.passbook.customerplatform.vo.PassInfo;
 import com.imooc.passbook.customerplatform.vo.PassTemplate;
@@ -17,13 +16,14 @@ import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.hadoop.hbase.TableName;
 import org.apache.hadoop.hbase.client.Get;
+import org.apache.hadoop.hbase.client.Put;
 import org.apache.hadoop.hbase.client.Result;
 import org.apache.hadoop.hbase.client.Scan;
 import org.apache.hadoop.hbase.filter.*;
 import org.apache.hadoop.hbase.util.Bytes;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.MethodArgumentNotValidException;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
@@ -55,25 +55,47 @@ public class UserPassServiceImpl implements IUserPassService {
         return getPassInfosByStatus(userId, PassStatus.ALL);
     }
 
-    // 获取用户可领取的优惠券
-    @Override
-    public CollectablePassTemplates getCollectablePassTemplates(Long userId) throws Exception {
-        return null;
-    }
-
     // 消费优惠券
     @Override
     public void consumePass(Pass pass) {
-        Scan scan = buildScanForPass(pass);
-        List<Pass> passes = hbaseTemplate.find(HBaseTable.PassTable.TABLE_NAME, scan, new PassRowMapper());
-
-        if (passes == null || passes.size() != 1) {
-            log.error("[consumePass] ");
+        if (!isPassValid(pass)) {
+            log.error("[consumePass] invalid pass: {}", pass);
             throw new BusinessException(ErrorCode.INVALID_PASS);
         }
+
+        byte[] FAMILY_I = HBaseTable.PassTable.FAMILY_I.getBytes();
+        byte[] CONSUME_DATE = HBaseTable.PassTable.CONSUME_DATE.getBytes();
+
+        Put put = new Put(pass.getRowKey().getBytes());
+        put.addColumn(FAMILY_I, CONSUME_DATE, Bytes.toBytes(LocalDate.now().toString()));
+        hbaseTemplate.saveOrUpdate(HBaseTable.PassTable.TABLE_NAME, put);
     }
 
-    private Scan buildScanForPass(Pass pass) {
+    private boolean isPassValid(Pass pass) {
+        String reversedUserId = new StringBuilder(String.valueOf(pass.getUserId())).reverse().toString();
+        byte[] rowKeyPrefix = Bytes.toBytes(reversedUserId);
+
+        List<Filter> filters = new ArrayList<>();
+        filters.add(new PrefixFilter(rowKeyPrefix));      // 1. 用 rowKeyPrefix 来过滤出该用户的 pass
+        filters.add(new SingleColumnValueFilter(          // 2. 用 template id 来过滤出该 passTemplate 下的 pass
+            HBaseTable.PassTable.FAMILY_I.getBytes(),
+            HBaseTable.PassTable.TEMPLATE_ID.getBytes(),
+            CompareFilter.CompareOp.EQUAL,
+            Bytes.toBytes(pass.getTemplateId())
+        ));
+        filters.add(new SingleColumnValueFilter(          // 3. 用 -1 来过滤出还未被消费的 pass
+            HBaseTable.PassTable.FAMILY_I.getBytes(),
+            HBaseTable.PassTable.CONSUME_DATE.getBytes(),
+            CompareFilter.CompareOp.EQUAL,
+            Bytes.toBytes("-1")
+        ));
+
+        Scan scan = new Scan();
+        scan.setFilter(new FilterList(filters));          // 由3个过滤器组装出的 scan
+
+        List<Pass> passes = hbaseTemplate.find(HBaseTable.PassTable.TABLE_NAME, scan, new PassRowMapper());
+
+        return passes == null || passes.size() != 1;      // 若 HBase 中找不到符合条件的 pass 则说明该 pass 无效
     }
 
     private List<PassInfo> getPassInfosByStatus(Long userId, PassStatus status) throws Exception {
