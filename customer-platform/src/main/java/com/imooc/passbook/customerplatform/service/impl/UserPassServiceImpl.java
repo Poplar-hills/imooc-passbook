@@ -1,9 +1,11 @@
 package com.imooc.passbook.customerplatform.service.impl;
 
+import com.imooc.passbook.customerplatform.constants.ErrorCode;
 import com.imooc.passbook.customerplatform.constants.HBaseTable;
 import com.imooc.passbook.customerplatform.constants.PassStatus;
 import com.imooc.passbook.customerplatform.dao.MerchantDao;
 import com.imooc.passbook.customerplatform.entity.Merchant;
+import com.imooc.passbook.customerplatform.exception.BusinessException;
 import com.imooc.passbook.customerplatform.orm.PassRowMapper;
 import com.imooc.passbook.customerplatform.service.IUserPassService;
 import com.imooc.passbook.customerplatform.vo.CollectablePassTemplates;
@@ -20,6 +22,7 @@ import org.apache.hadoop.hbase.client.Scan;
 import org.apache.hadoop.hbase.filter.*;
 import org.apache.hadoop.hbase.util.Bytes;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.MethodArgumentNotValidException;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -61,18 +64,27 @@ public class UserPassServiceImpl implements IUserPassService {
     // 消费优惠券
     @Override
     public void consumePass(Pass pass) {
+        Scan scan = buildScanForPass(pass);
+        List<Pass> passes = hbaseTemplate.find(HBaseTable.PassTable.TABLE_NAME, scan, new PassRowMapper());
 
+        if (passes == null || passes.size() != 1) {
+            log.error("[consumePass] ");
+            throw new BusinessException(ErrorCode.INVALID_PASS);
+        }
+    }
+
+    private Scan buildScanForPass(Pass pass) {
     }
 
     private List<PassInfo> getPassInfosByStatus(Long userId, PassStatus status) throws Exception {
-        Scan scan = buildScan(userId, status);
+        Scan scan = buildScanForUserAndStatus(userId, status);
         List<Pass> passes = hbaseTemplate.find(HBaseTable.PassTable.TABLE_NAME, scan, new PassRowMapper());
         Map<String, PassTemplate> passTemplateMap = buildPassTemplateMap(passes);
         Map<Integer, Merchant> merchantsMap = buildMerchantMap(new ArrayList<>(passTemplateMap.values()));
         return buildPassInfoList(passes, passTemplateMap, merchantsMap);
     }
 
-    private Scan buildScan(Long userId, PassStatus status) {
+    private Scan buildScanForUserAndStatus(Long userId, PassStatus status) {
         String reversedUserId = new StringBuilder(String.valueOf(userId)).reverse().toString();
         byte[] rowPrefix = Bytes.toBytes(reversedUserId);  // 根据 userId 构造行键前缀
 
@@ -93,7 +105,7 @@ public class UserPassServiceImpl implements IUserPassService {
         }
 
         Scan scan = new Scan();
-        scan.setFilter(new FilterList(filters));
+        scan.setFilter(new FilterList(filters));  // 多个过滤器之间默认是 AND 关系（如需要也可以设置而 OR 关系）
         return scan;
     }
 

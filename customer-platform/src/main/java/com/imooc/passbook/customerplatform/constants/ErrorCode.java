@@ -9,7 +9,8 @@ public enum ErrorCode {
 
     SUCCESS(0, "SUCCESS"),
     UNKNOWN_ERROR(1, "未知错误"),
-    METHOD_ARGUMENT_NOT_VALID(2, "请求参数错误");
+    METHOD_ARGUMENT_NOT_VALID(2, "请求参数错误"),
+    INVALID_PASS(3, "无效的 Pass 信息");
 
     private Integer code;
 

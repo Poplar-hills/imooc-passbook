@@ -3,10 +3,11 @@ package com.imooc.passbook.customerplatform.exception;
 import com.imooc.passbook.customerplatform.constants.ErrorCode;
 import com.imooc.passbook.customerplatform.vo.Response;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -21,7 +22,7 @@ import javax.servlet.http.HttpServletRequest;
 public class GlobalExceptionHandler {
 
     @ExceptionHandler(MethodArgumentNotValidException.class)
-    public Response<String> handleMethodArgumentNotValidException(HttpServletRequest request,
+    public ResponseEntity<Response> handleMethodArgumentNotValidException(HttpServletRequest request,
                                                                   MethodArgumentNotValidException e) {
         log.error("[Exception Handler] Catch method argument not valid exception", e);
 
@@ -31,23 +32,39 @@ public class GlobalExceptionHandler {
             .map(fieldError -> fieldError.getField() + " " + fieldError.getDefaultMessage())
             .orElse(errorCode.getDesc());
 
-        return Response.<String>builder()
+        Response<String> response = Response.<String>builder()
             .code(errorCode.getCode())
             .message(errorMessage)
             .requestUrl(request.getRequestURI())
             .data("No data specified")
             .build();
+
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(response);
     }
 
-    @ResponseBody  // TODO: test if this is necessary
+    @ExceptionHandler(BusinessException.class)
+    public ResponseEntity<Response> handleBusinessException(BusinessException e) {
+        log.error("[Exception Handler] Business exception", e);
+
+        Response<String> response = Response.<String>builder()
+            .code(e.getCode())
+            .message(e.getMessage())
+            .build();
+
+        return ResponseEntity.status(e.getHttpStatus()).body(response);
+    }
+
     @ExceptionHandler(Exception.class)
-    public Response<String> handleException(HttpServletRequest request, Exception e) {
+    public ResponseEntity<Response> handleException(HttpServletRequest request, Exception e) {
         log.error("[Exception Handler] server exception", e);
-        return Response.<String>builder()  // 注意 ∵ ErrorInfo 是泛型 ∴ 使用这里使用 builder 时要指定类型
+
+        Response<String> response = Response.<String>builder()
             .code(ErrorCode.UNKNOWN_ERROR.getCode())
             .message(ErrorCode.UNKNOWN_ERROR.getDesc())
             .requestUrl(request.getRequestURI())
             .data("No data specified")
             .build();
+
+        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(response);
     }
 }
