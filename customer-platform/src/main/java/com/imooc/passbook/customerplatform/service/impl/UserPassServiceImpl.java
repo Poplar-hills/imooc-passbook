@@ -3,9 +3,9 @@ package com.imooc.passbook.customerplatform.service.impl;
 import com.imooc.passbook.customerplatform.constants.ErrorCode;
 import com.imooc.passbook.customerplatform.constants.HBaseTable;
 import com.imooc.passbook.customerplatform.constants.PassStatus;
-import com.imooc.passbook.customerplatform.dao.MerchantDao;
 import com.imooc.passbook.customerplatform.entity.Merchant;
 import com.imooc.passbook.customerplatform.exception.BusinessException;
+import com.imooc.passbook.customerplatform.external.MerchantClient;
 import com.imooc.passbook.customerplatform.orm.PassRowMapper;
 import com.imooc.passbook.customerplatform.service.IUserPassService;
 import com.imooc.passbook.customerplatform.vo.Pass;
@@ -35,7 +35,7 @@ import java.util.stream.Collectors;
 public class UserPassServiceImpl implements IUserPassService {
 
     private final HbaseTemplate hbaseTemplate;
-    private final MerchantDao merchantsDao;
+    private final MerchantClient merchantClient;
 
     // 获取用户已领取但未使用的优惠券
     @Override
@@ -51,7 +51,7 @@ public class UserPassServiceImpl implements IUserPassService {
 
     // 获取用户所有已领取的优惠券
     @Override
-    public List<PassInfo> getAllUserPasseInfos(Long userId) throws Exception {
+    public List<PassInfo> getAllUserPassInfos(Long userId) throws Exception {
         return getPassInfosByStatus(userId, PassStatus.ALL);
     }
 
@@ -75,15 +75,15 @@ public class UserPassServiceImpl implements IUserPassService {
         String reversedUserId = new StringBuilder(String.valueOf(pass.getUserId())).reverse().toString();
         byte[] rowKeyPrefix = Bytes.toBytes(reversedUserId);
 
-        List<Filter> filters = new ArrayList<>();
-        filters.add(new PrefixFilter(rowKeyPrefix));      // 1. 用 rowKeyPrefix 来过滤出该用户的 pass
-        filters.add(new SingleColumnValueFilter(          // 2. 用 template id 来过滤出该 passTemplate 下的 pass
+        FilterList filterList = new FilterList();
+        filterList.addFilter(new PrefixFilter(rowKeyPrefix));  // 1. 用 rowKeyPrefix 来过滤出该用户的 pass
+        filterList.addFilter(new SingleColumnValueFilter(      // 2. 用 template id 来过滤出该 passTemplate 下的 pass
             HBaseTable.PassTable.FAMILY_I.getBytes(),
             HBaseTable.PassTable.TEMPLATE_ID.getBytes(),
             CompareFilter.CompareOp.EQUAL,
             Bytes.toBytes(pass.getTemplateId())
         ));
-        filters.add(new SingleColumnValueFilter(          // 3. 用 -1 来过滤出还未被消费的 pass
+        filterList.addFilter(new SingleColumnValueFilter(      // 3. 用 -1 来过滤出还未被消费的 pass
             HBaseTable.PassTable.FAMILY_I.getBytes(),
             HBaseTable.PassTable.CONSUME_DATE.getBytes(),
             CompareFilter.CompareOp.EQUAL,
@@ -91,7 +91,7 @@ public class UserPassServiceImpl implements IUserPassService {
         ));
 
         Scan scan = new Scan();
-        scan.setFilter(new FilterList(filters));          // 由3个过滤器组装出的 scan
+        scan.setFilter(filterList);     // 由3个过滤器组装出的 scan（FilterList 中的 filter 之间默认是 AND 关系）
 
         List<Pass> passes = hbaseTemplate.find(HBaseTable.PassTable.TABLE_NAME, scan, new PassRowMapper());
 
@@ -110,24 +110,24 @@ public class UserPassServiceImpl implements IUserPassService {
         String reversedUserId = new StringBuilder(String.valueOf(userId)).reverse().toString();
         byte[] rowPrefix = Bytes.toBytes(reversedUserId);  // 根据 userId 构造行键前缀
 
-        List<Filter> filters = new ArrayList<>();
-        filters.add(new PrefixFilter(rowPrefix));  // 1. 行键前缀过滤器，找到特定用户的优惠券
+        FilterList filterList = new FilterList();
+        filterList.addFilter(new PrefixFilter(rowPrefix));  // 1. 行键前缀过滤器，找到特定用户的优惠券
 
-        if (status != PassStatus.ALL) {            // 2. 若要查找的是已使用/未使用的优惠券，就再加一个基于列单元值的过滤器
+        if (status != PassStatus.ALL) {                     // 2. 若要查找的是已使用/未使用的优惠券，就再加一个基于列单元值的过滤器
             CompareFilter.CompareOp compareOp = (status == PassStatus.UNUSED)  // 根据要查找的状态选择比较器
                 ? CompareFilter.CompareOp.EQUAL
                 : CompareFilter.CompareOp.NOT_EQUAL;
 
-            filters.add(new SingleColumnValueFilter(
+            filterList.addFilter(new SingleColumnValueFilter(
                 HBaseTable.PassTable.FAMILY_I.getBytes(),
                 HBaseTable.PassTable.CONSUME_DATE.getBytes(),
                 compareOp,
-                Bytes.toBytes("-1"))            // 根据 consume_date 字段是否等于 -1 来判断优惠券状态，从而过滤优惠券
+                Bytes.toBytes("-1"))  // 根据 consume_date 字段是否等于 -1 来判断优惠券状态，从而过滤优惠券
             );
         }
 
         Scan scan = new Scan();
-        scan.setFilter(new FilterList(filters));  // 多个过滤器之间默认是 AND 关系（如需要也可以设置而 OR 关系）
+        scan.setFilter(filterList);  // 多个过滤器之间默认是 AND 关系（如需要也可以设置而 OR 关系）
         return scan;
     }
 
@@ -180,7 +180,7 @@ public class UserPassServiceImpl implements IUserPassService {
             .map(PassTemplate::getId)
             .collect(Collectors.toList());
 
-        return merchantsDao.findByIdIn(merchantsIds).stream()
+        return merchantClient.getMerchants(merchantsIds).stream()
             .collect(Collectors.toMap(Merchant::getId, merchant -> merchant));
     }
 
