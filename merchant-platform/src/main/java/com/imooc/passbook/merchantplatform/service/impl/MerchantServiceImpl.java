@@ -1,10 +1,11 @@
-package com.imooc.passbook.merchantplatform.service;
+package com.imooc.passbook.merchantplatform.service.impl;
 
 import com.alibaba.fastjson.JSON;
 import com.imooc.passbook.merchantplatform.constants.Constants;
 import com.imooc.passbook.merchantplatform.constants.ErrorCode;
 import com.imooc.passbook.merchantplatform.dao.MerchantDao;
 import com.imooc.passbook.merchantplatform.entity.Merchant;
+import com.imooc.passbook.merchantplatform.service.IMerchantService;
 import com.imooc.passbook.merchantplatform.vo.CreateMerchantRequest;
 import com.imooc.passbook.merchantplatform.vo.PassTemplateRequest;
 import com.imooc.passbook.merchantplatform.vo.Response;

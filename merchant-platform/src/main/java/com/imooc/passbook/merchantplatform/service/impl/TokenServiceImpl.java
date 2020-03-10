@@ -1,6 +1,7 @@
-package com.imooc.passbook.merchantplatform.service;
+package com.imooc.passbook.merchantplatform.service.impl;
 
 import com.imooc.passbook.merchantplatform.constants.Constants;
+import com.imooc.passbook.merchantplatform.service.ITokenService;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.redis.core.RedisCallback;
