@@ -10,4 +10,7 @@ public class Constants {
 
   // token value
   public static final String TOKEN_VALUE = "merchant-platform-token";
+
+  // 优惠券 token 文件目录
+  public static final String TOKEN_DIR = "/tmp/token/";
 }

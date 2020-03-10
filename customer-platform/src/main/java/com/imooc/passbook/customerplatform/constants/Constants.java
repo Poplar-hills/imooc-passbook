@@ -5,9 +5,6 @@ public class Constants {
     // 商户优惠券投放的 kafka topic
     public static final String TEMPLATE_TOPIC = "merchant-pass-template";
 
-    // 优惠券 token 文件目录
-    public static final String TOKEN_DIR = "/tmp/token/";
-
     // 已使用的 token 的文件名后缀
     public static final String USED_TOKEN_SUFFIX = "_used";
 
